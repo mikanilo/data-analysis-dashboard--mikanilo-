@@ -65,7 +65,7 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
           <CardContent>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
-                {type === 'bar' && (
+                {type === 'bar' ? (
                   <BarChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
@@ -79,8 +79,7 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
                       />
                     ))}
                   </BarChart>
-                )}
-                {type === 'line' && (
+                ) : type === 'line' ? (
                   <LineChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
@@ -96,8 +95,7 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
                       />
                     ))}
                   </LineChart>
-                )}
-                {type === 'pie' && numericColumns.length > 0 && (
+                ) : (
                   <PieChart>
                     <Pie
                       data={getColumnData(data, numericColumns[0]).slice(0, 6)}

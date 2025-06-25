@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from 'react';
-import { RefreshCw, Download, BarChart3, PieChart, LineChart, Table } from 'lucide-react';
+import { RefreshCw, Download, BarChart3, PieChart, LineChart, Table, MessageCircle } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -8,6 +8,7 @@ import { DataRow } from '@/types/data';
 import DataTable from './DataTable';
 import ChartSection from './ChartSection';
 import InsightsPanel from './InsightsPanel';
+import ChatInterface from './ChatInterface';
 import { generateDataInsights, getDataSummary } from '@/utils/dataAnalysis';
 
 interface DashboardProps {
@@ -97,7 +98,7 @@ const Dashboard = ({ data, fileName, onReset }: DashboardProps) => {
 
       {/* Main Content Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-5">
           <TabsTrigger value="overview" className="flex items-center gap-2">
             <BarChart3 className="h-4 w-4" />
             Overview
@@ -109,6 +110,10 @@ const Dashboard = ({ data, fileName, onReset }: DashboardProps) => {
           <TabsTrigger value="insights" className="flex items-center gap-2">
             <LineChart className="h-4 w-4" />
             Insights
+          </TabsTrigger>
+          <TabsTrigger value="chat" className="flex items-center gap-2">
+            <MessageCircle className="h-4 w-4" />
+            Chat
           </TabsTrigger>
           <TabsTrigger value="data" className="flex items-center gap-2">
             <Table className="h-4 w-4" />
@@ -129,6 +134,10 @@ const Dashboard = ({ data, fileName, onReset }: DashboardProps) => {
 
         <TabsContent value="insights">
           <InsightsPanel insights={insights} showAll />
+        </TabsContent>
+
+        <TabsContent value="chat">
+          <ChatInterface data={data} />
         </TabsContent>
 
         <TabsContent value="data">
