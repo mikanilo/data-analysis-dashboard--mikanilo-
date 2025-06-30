@@ -31,7 +31,7 @@ Everything in Core Path + advanced topics like API validation, security, testing
 - [ ] Clone and run the project locally
 - [ ] Understand project structure and file organization
 - [ ] Basic React concepts review
-- [ ] **TODO**: Complete setup in `src/main.tsx`
+- [ ] **TODO**: Complete setup in [`src/main.tsx`](src/main.tsx)
 
 **Advanced Path (Additional):**
 - [ ] Configure custom domain and deployment pipeline
@@ -43,7 +43,7 @@ Everything in Core Path + advanced topics like API validation, security, testing
 - [ ] Understand data flow in the application
 - [ ] Work with CSV parsing utilities
 - [ ] Basic HTTP concepts and data fetching
-- [ ] **TODO**: Enhance data parsing in `src/utils/dataAnalysis.ts`
+- [ ] **TODO**: Enhance data parsing in [`src/utils/dataAnalysis.ts`](src/utils/dataAnalysis.ts)
 
 **Advanced Path (Additional):**
 - [ ] Implement API routes with proper schema validation
@@ -55,7 +55,7 @@ Everything in Core Path + advanced topics like API validation, security, testing
 - [ ] Component composition and props
 - [ ] React Router setup and navigation
 - [ ] Responsive design with Tailwind CSS
-- [ ] **TODO**: Enhance navigation in `src/components/Dashboard.tsx`
+- [ ] **TODO**: Enhance navigation in [`src/components/Dashboard.tsx`](src/components/Dashboard.tsx)
 
 **Advanced Path (Additional):**
 - [ ] Implement secured routes with authentication
@@ -67,7 +67,7 @@ Everything in Core Path + advanced topics like API validation, security, testing
 - [ ] Dynamic data rendering with React
 - [ ] Table components and data tables
 - [ ] Conditional rendering based on data
-- [ ] **TODO**: Enhance data display in `src/components/DataTable.tsx`
+- [ ] **TODO**: Enhance data display in [`src/components/DataTable.tsx`](src/components/DataTable.tsx)
 
 **Advanced Path (Additional):**
 - [ ] Advanced data transformation and processing
@@ -79,7 +79,7 @@ Everything in Core Path + advanced topics like API validation, security, testing
 - [ ] Form handling and user input
 - [ ] File upload functionality
 - [ ] State management with useState and useEffect
-- [ ] **TODO**: Enhance user interactions in `src/components/DataUpload.tsx`
+- [ ] **TODO**: Enhance user interactions in [`src/components/DataUpload.tsx`](src/components/DataUpload.tsx)
 
 **Advanced Path (Additional):**
 - [ ] Implement async processing with Web Workers
@@ -91,7 +91,7 @@ Everything in Core Path + advanced topics like API validation, security, testing
 - [ ] Chart integration with Recharts
 - [ ] Different chart types (bar, line, pie)
 - [ ] Dynamic chart generation based on data
-- [ ] **TODO**: Add more chart types in `src/components/ChartSection.tsx`
+- [ ] **TODO**: Add more chart types in [`src/components/ChartSection.tsx`](src/components/ChartSection.tsx)
 
 **Advanced Path (Additional):**
 - [ ] Advanced chart customization and interactions
@@ -103,7 +103,7 @@ Everything in Core Path + advanced topics like API validation, security, testing
 - [ ] Basic AI concepts and API integration
 - [ ] Chat interface for data questions
 - [ ] Automated insight generation
-- [ ] **TODO**: Implement AI responses in `src/components/ChatInterface.tsx`
+- [ ] **TODO**: Implement AI responses in [`src/components/ChatInterface.tsx`](src/components/ChatInterface.tsx)
 
 **Advanced Path (Additional):**
 - [ ] Connect to third-party AI services (OpenAI, Anthropic)
@@ -115,7 +115,7 @@ Everything in Core Path + advanced topics like API validation, security, testing
 - [ ] Polish UI/UX and accessibility
 - [ ] Error handling and user feedback
 - [ ] Data export functionality
-- [ ] **TODO**: Add export features in `src/components/Dashboard.tsx`
+- [ ] **TODO**: Add export features in [`src/components/Dashboard.tsx`](src/components/Dashboard.tsx)
 
 **Advanced Path (Additional):**
 - [ ] Comprehensive testing suite (unit, integration)
@@ -148,7 +148,7 @@ Everything in Core Path + advanced topics like API validation, security, testing
 
 ## 🤖 AI Integration Details
 
-The project includes a chat interface (`src/components/ChatInterface.tsx`) that currently shows a placeholder response. Students will implement actual AI integration in weeks 7-8:
+The project includes a chat interface ([`src/components/ChatInterface.tsx`](src/components/ChatInterface.tsx)) that currently shows a placeholder response. Students will implement actual AI integration in weeks 7-8:
 
 ### For Students:
 1. **Week 7**: Set up API integration with OpenAI or Anthropic
@@ -191,20 +191,40 @@ npm run preview      # Preview production build
 npm run lint         # Run ESLint
 ```
 
+## ✏️ Editing This Project
+
+### Using Lovable (Recommended for Students)
+This project can be edited directly in Lovable, an AI-powered web development platform:
+
+1. **Fork/Remix**: Create your own copy of this project in Lovable
+2. **Live Preview**: See changes instantly in the right panel as you make edits
+3. **AI Assistance**: Chat with the AI to implement features and fix issues
+4. **GitHub Integration**: Connect to GitHub for version control and collaboration
+
+### Local Development
+If you prefer to use your own IDE:
+1. Clone the repository locally
+2. Set up the development environment as described above
+3. Use your preferred code editor (VS Code, WebStorm, etc.)
+4. Connect to GitHub for version control
+
 ## 📁 Project Structure
 
 ```
 src/
-├── components/          # React components
-│   ├── ui/             # Reusable UI components (shadcn/ui)
-│   ├── ChatInterface.tsx    # AI chat component
-│   ├── ChartSection.tsx     # Data visualization
-│   ├── Dashboard.tsx        # Main dashboard
-│   └── ...
-├── pages/              # Page components
-├── types/              # TypeScript type definitions
-├── utils/              # Utility functions
-└── hooks/              # Custom React hooks
+├── components/              # React components
+│   ├── ui/                 # Reusable UI components (shadcn/ui)
+│   ├── ChatInterface.tsx   # AI chat component
+│   ├── ChartSection.tsx    # Data visualization
+│   ├── Dashboard.tsx       # Main dashboard
+│   ├── DataTable.tsx       # Data display table
+│   ├── DataUpload.tsx      # File upload component
+│   └── InsightsPanel.tsx   # Automated insights display
+├── pages/                  # Page components
+├── types/                  # TypeScript type definitions
+├── utils/                  # Utility functions
+│   └── dataAnalysis.ts     # Data processing utilities
+└── hooks/                  # Custom React hooks
 ```
 
 ## 🎓 Learning Objectives
