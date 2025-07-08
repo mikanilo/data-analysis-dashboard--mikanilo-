@@ -6,11 +6,23 @@ import { DataInsight } from '@/types/data';
 
 // 🟡 MEDIUM - Week 4-5: Automated Insights Display Component
 // TODO: Students - This component displays AI-generated insights about your data
+// 
+// What this component does:
+// - Takes insights (interesting facts about your data) and displays them nicely
+// - Uses icons to make different types of insights easy to recognize
+// - Shows confidence scores so users know how reliable each insight is
+// - Handles empty states gracefully when no insights are available
+//
 // Learning objectives:
-// - Component props and TypeScript interfaces
-// - Conditional rendering patterns
-// - Icon usage and visual hierarchy
-// - Badge components for metadata display
+// - Component props and TypeScript interfaces (how components receive data)
+// - Conditional rendering patterns (showing/hiding things based on conditions)
+// - Icon usage and visual hierarchy (making interfaces intuitive)
+// - Badge components for metadata display (showing extra information)
+//
+// Real-world context:
+// - Data analysis tools like Tableau, PowerBI use similar insight panels
+// - This teaches you how to present complex information simply
+// - Pattern used in dashboards, analytics tools, and reporting systems
 
 interface InsightsPanelProps {
   insights: DataInsight[];
@@ -18,10 +30,20 @@ interface InsightsPanelProps {
 }
 
 const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
-  // 🟢 EASY - Icon Mapping Function
-  // TODO: Students - Week 3: Understand switch statements and icon libraries
+  // 🟢 EASY - Week 3: Icon Mapping Function
+  // TODO: Students - Understand switch statements and icon libraries
+  // 
+  // What's happening here:
+  // - We have different types of insights (trend, outlier, correlation)
+  // - Each type needs a different icon to help users understand quickly
+  // - Instead of writing if/else statements everywhere, we use one function
+  //
   // Why do we use a function instead of inline conditionals?
-  // HINT: Reusability and maintainability
+  // - Reusability: We can use this function anywhere we need insight icons
+  // - Maintainability: If we want to change an icon, we only change it here
+  // - Readability: The code is cleaner and easier to understand
+  //
+  // Try this: Add a new insight type and its icon!
   const getInsightIcon = (type: DataInsight['type']) => {
     switch (type) {
       case 'trend':
@@ -36,9 +58,20 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
     // TODO: Week 4 - Add more insight types (seasonal, anomaly, prediction)
   };
 
-  // 🟢 EASY - Dynamic Styling Function
-  // TODO: Students - Week 3: Learn about dynamic CSS classes
+  // 🟢 EASY - Week 3: Dynamic Styling Function
+  // TODO: Students - Learn about dynamic CSS classes
+  // 
+  // What's happening here:
+  // - Different insight types get different colored badges
+  // - Trends are green (positive), outliers are yellow (caution), etc.
+  // - We use Tailwind CSS classes to apply colors
+  //
   // How does this create different colored badges for different insight types?
+  // - The function returns different CSS class strings based on the insight type
+  // - These classes are applied to the badge component
+  // - Tailwind CSS interprets these classes and applies the appropriate styles
+  //
+  // Try this: Change the colors or add new insight types with their own colors!
   const getInsightColor = (type: DataInsight['type']) => {
     switch (type) {
       case 'trend':
@@ -53,9 +86,21 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
     // TODO: Week 4 - Make colors configurable or theme-aware
   };
 
-  // 🟢 EASY - Empty State Handling
-  // TODO: Students - Week 3: Always handle empty states gracefully
-  // What makes a good empty state? Helpful messaging and clear next steps
+  // 🟢 EASY - Week 3: Empty State Handling
+  // TODO: Students - Always handle empty states gracefully
+  // 
+  // What's happening here:
+  // - Before showing insights, we check if there are any insights to show
+  // - If the insights array is empty, we show a helpful message instead
+  // - This prevents the user from seeing a blank, confusing screen
+  //
+  // What makes a good empty state?
+  // - Helpful messaging that explains why it's empty
+  // - Clear next steps for the user
+  // - Consistent styling with the rest of the app
+  //
+  // Real-world example: Think of when you open a new email app - it doesn't show
+  // nothing, it shows "No emails yet" with instructions on how to get started
   if (insights.length === 0) {
     return (
       <Card>
@@ -85,14 +130,29 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          {/* 🟡 MEDIUM - Dynamic List Rendering */}
-          {/* TODO: Students - Week 4: Understand array mapping and complex layouts */}
+          {/* 🟡 MEDIUM - Week 4: Dynamic List Rendering */}
+          {/* TODO: Students - Understand array mapping and complex layouts */}
+          {/* 
+          What's happening here:
+          - We have an array of insights
+          - We want to display each insight as a card
+          - We use the .map() function to transform each insight into JSX
+          - Each insight gets its own card with icon, title, description, etc.
+          
+          Why use .map() instead of writing each card manually?
+          - Dynamic: Works with any number of insights
+          - Maintainable: Change the layout once, applies to all insights
+          - Scalable: Can handle 10 insights or 1000 insights
+          
+          The 'key' prop is important for React's performance optimization
+          */}
           {insights.map((insight, index) => (
             <div key={index} className="border rounded-lg p-4 hover:bg-gray-50 transition-colors">
               {/* TODO: Week 4 - Add click handler to expand insight details */}
               <div className="flex items-start justify-between gap-3">
                 <div className="flex items-start gap-3 flex-1">
-                  {/* 🟢 EASY - Dynamic Icon and Styling */}
+                  {/* 🟢 EASY - Week 3: Dynamic Icon and Styling */}
+                  {/* Using our helper functions to get the right icon and colors */}
                   <div className={`p-2 rounded-full ${getInsightColor(insight.type)}`}>
                     {getInsightIcon(insight.type)}
                   </div>
@@ -100,8 +160,21 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
                     <h4 className="font-medium text-gray-900 mb-1">{insight.title}</h4>
                     <p className="text-sm text-gray-600 mb-2">{insight.description}</p>
                     
-                    {/* 🟡 MEDIUM - Conditional Rendering */}
-                    {/* TODO: Students - Week 4: When and why do we use conditional rendering? */}
+                    {/* 🟡 MEDIUM - Week 4: Conditional Rendering */}
+                    {/* TODO: Students - When and why do we use conditional rendering? */}
+                    {/* 
+                    What's happening here:
+                    - Not all insights have a 'value' field
+                    - We only want to show the badge if there IS a value
+                    - The && operator means "if insight.value exists, then show the badge"
+                    
+                    Why conditional rendering?
+                    - Prevents showing empty or undefined values
+                    - Makes the UI cleaner and more professional
+                    - Avoids layout issues with missing data
+                    
+                    Try this: What happens if you remove the conditional check?
+                    */}
                     {insight.value && (
                       <Badge variant="secondary" className="text-xs">
                         {insight.value}
@@ -112,8 +185,21 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
                   </div>
                 </div>
                 
-                {/* 🟡 MEDIUM - Confidence Score Display */}
-                {/* TODO: Students - Week 4: How do confidence scores help users trust insights? */}
+                {/* 🟡 MEDIUM - Week 4: Confidence Score Display */}
+                {/* TODO: Students - How do confidence scores help users trust insights? */}
+                {/* 
+                What's happening here:
+                - AI-generated insights have confidence scores (0-1)
+                - We convert to percentage (0.85 becomes 85%)
+                - We round to avoid showing decimals like 84.7%
+                
+                Why show confidence scores?
+                - Helps users understand how reliable the insight is
+                - Builds trust in AI-generated content
+                - Lets users prioritize which insights to act on
+                
+                Real-world example: Weather apps show confidence in forecasts
+                */}
                 {insight.confidence && (
                   <Badge variant="outline" className="text-xs">
                     {Math.round(insight.confidence * 100)}% confidence
@@ -126,8 +212,21 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
             </div>
           ))}
           
-          {/* 🟢 EASY - Pagination/Truncation Logic */}
-          {/* TODO: Students - Week 4: Understand user experience for long lists */}
+          {/* 🟢 EASY - Week 4: Pagination/Truncation Logic */}
+          {/* TODO: Students - Understand user experience for long lists */}
+          {/* 
+          What's happening here:
+          - If there are more than 4 insights and we're not showing all
+          - We display a message about how many more are available
+          - This prevents the interface from becoming overwhelming
+          
+          Why limit what we show?
+          - Too much information can be overwhelming
+          - Keeps the interface clean and focused
+          - Encourages users to explore more deliberately
+          
+          Real-world example: Google shows 10 results per page, not 1000
+          */}
           {!showAll && insights.length > 4 && (
             <div className="text-center pt-4">
               <p className="text-sm text-gray-500">
