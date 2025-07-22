@@ -3,20 +3,57 @@
 
 A beginner-friendly project to learn React, TypeScript, and data visualization by building a CSV data analysis tool.
 
-## 🚀 Getting Started
+## 💰 Cost Breakdown
 
-### How to Start the Project
+### Free Development (Recommended for Students)
+- **Basic development**: $0 - Use local development with any code editor
+- **Deployment**: $0 - Deploy for free on Vercel, Netlify, or GitHub Pages
+- **Total cost per student**: $0
+
+### Optional Enhanced Features
+- **Lovable platform**: ~$10-15/month (optional, for visual development experience)
+- **AI chat features**: ~$1-5/month (using OpenAI/Anthropic free tiers)
+- **Total enhanced cost per student**: ~$11-20/month
+
+## 🚀 Development Options
+
+### Option 1: Free Local Development (Recommended)
+Perfect for learning React, TypeScript, and data visualization without any costs.
+
 ```bash
-# 1. Install dependencies
+# 1. Fork this repository on GitHub
+# 2. Clone your fork to your computer
+git clone https://github.com/YOUR-USERNAME/plug-n-learn-dashboard.git
+cd plug-n-learn-dashboard
+
+# 3. Install dependencies
 npm install
 
-# 2. Start the development server
+# 4. Start the development server
 npm run dev
 
-# 3. Open your browser to http://localhost:5173
+# 5. Open your browser to http://localhost:5173
 ```
 
-That's it! You should see the app running.
+**What you get:**
+- Full React/TypeScript learning experience
+- All visualization features work
+- Can modify and experiment with code
+- Deploy for free when ready
+
+### Option 2: Enhanced Development with Lovable (Optional)
+Great for beginners who want visual development tools and AI assistance.
+
+1. Create a Lovable account
+2. Import this project
+3. Get instant live preview and AI coding help
+4. One-click deployment
+
+**What you get additionally:**
+- Visual component editing
+- AI-powered development assistance
+- Instant live preview
+- Simplified deployment
 
 ## 📖 What You'll Build
 
@@ -143,6 +180,10 @@ You're building a **data dashboard** that:
 - Send data context to the AI
 - Handle API responses
 
+**Cost considerations:**
+- Use free API tiers (OpenAI: $5 free credit, Anthropic: free tier available)
+- Alternative: Create mock AI responses for learning without API costs
+
 ### Week 8: Polish and Improve 🔴 ADVANCED
 **What you'll learn in class:**
 - Error handling strategies
@@ -174,10 +215,61 @@ You're building a **data dashboard** that:
 - Portfolio building
 
 **What you'll do:**
-- Deploy your app online
+- Deploy your app online (free options available)
 - Create a demo presentation
 - Document your learning journey
 - Celebrate your accomplishment!
+
+## 🚀 Free Deployment Options
+
+### Option 1: Vercel (Recommended)
+```bash
+# 1. Push your code to GitHub
+# 2. Visit vercel.com and sign up with GitHub
+# 3. Import your repository
+# 4. Deploy with one click
+```
+
+### Option 2: Netlify
+```bash
+# 1. Build your project
+npm run build
+
+# 2. Visit netlify.com
+# 3. Drag and drop the 'dist' folder
+# 4. Your app is live!
+```
+
+### Option 3: GitHub Pages
+```bash
+# 1. Install gh-pages
+npm install --save-dev gh-pages
+
+# 2. Add to package.json scripts:
+"deploy": "gh-pages -d dist"
+
+# 3. Deploy
+npm run build && npm run deploy
+```
+
+## 👨‍🏫 For Instructors
+
+### Classroom Setup Recommendations
+- **Cost per class**: $0 (using free local development)
+- **Requirements**: Students need computers with Node.js installed
+- **Internet**: Only needed for initial setup and deployment
+- **AI Features**: Use mock responses or shared API key to minimize costs
+
+### Minimizing Costs
+1. **Use local development** for the entire course
+2. **Share one OpenAI API key** among students (set spending limits)
+3. **Deploy to free platforms** (Vercel, Netlify, GitHub Pages)
+4. **Optional**: Purchase one Lovable subscription for live demos
+
+### Alternative Approaches
+- **Mock AI responses**: Implement fake AI responses for learning without API costs
+- **Offline development**: Focus on React/TypeScript without external APIs
+- **Progressive enhancement**: Start free, add paid features only if budget allows
 
 ## 🤔 What Each File Does
 
