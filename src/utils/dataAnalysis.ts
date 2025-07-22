@@ -199,7 +199,7 @@ export const getNumericColumns = (data: DataRow[]): string[] => {
 };
 
 export const getColumnValues = (data: DataRow[], column: string): (string | number)[] => {
-  return data.map(row => row[column]).filter(val => val !== null && val !== undefined);
+  return data.map(row => row[column]).filter(val => val !== null && val !== undefined && typeof val !== 'boolean') as (string | number)[];
 };
 
 export const calculateStatistics = (values: number[]) => {

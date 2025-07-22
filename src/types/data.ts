@@ -10,9 +10,9 @@ export interface DataColumn {
 }
 
 export interface DataInsight {
-  type: 'summary' | 'trend' | 'correlation' | 'outlier';
+  type: 'summary' | 'trend' | 'correlation' | 'outlier' | 'distribution';
   title: string;
   description: string;
   value?: string | number;
-  confidence?: number;
+  confidence?: 'high' | 'medium' | 'low';
 }

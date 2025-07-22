@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 import { DataRow } from '@/types/data';
-import { getDataSummary, getColumnData } from '@/utils/dataAnalysis';
+import { getDataSummary, getColumnValues } from '@/utils/dataAnalysis';
 
 // 📊 Week 6: Professional Data Visualization - Making Your Data Come Alive
 // Students - Transform raw data into compelling visual stories! This component showcases advanced React patterns.
@@ -37,7 +37,7 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
   // Week 7 enhancement: Let users choose columns, filter data, and save preferences
   const numericColumns = useMemo(() => {
     return Object.entries(summary.columnTypes)
-      .filter(([_, type]) => type === 'number')
+      .filter(([_, type]) => type === 'numeric')
       .map(([column]) => column)
       .slice(0, showAll ? 10 : 2);
   }, [summary, showAll]);
@@ -141,7 +141,7 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
                   // Week 7: Add multi-column support and intelligent data grouping
                   <PieChart>
                     <Pie
-                      data={getColumnData(data, numericColumns[0]).slice(0, 6)}
+                      data={getColumnValues(data, numericColumns[0]).slice(0, 6).map((value, index) => ({ name: `Item ${index + 1}`, value }))}
                       cx="50%"
                       cy="50%"
                       outerRadius={80}
@@ -149,7 +149,7 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
                       dataKey="value"
                       label
                     >
-                      {getColumnData(data, numericColumns[0]).slice(0, 6).map((entry, index) => (
+                      {getColumnValues(data, numericColumns[0]).slice(0, 6).map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                       ))}
                     </Pie>

@@ -193,7 +193,7 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
                 */}
                 {insight.confidence && (
                   <Badge variant="outline" className="text-xs">
-                    {Math.round(insight.confidence * 100)}% confidence
+                    {insight.confidence} confidence
                   </Badge>
                 )}
               </div>
