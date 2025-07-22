@@ -4,25 +4,16 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DataInsight } from '@/types/data';
 
-// 🟡 MEDIUM - Week 4-5: Automated Insights Display Component
-// TODO: Students - This component displays AI-generated insights about your data
+// 📊 Week 4-5: Smart Data Insights - Bringing Your Data to Life
+// Students - Transform raw data into meaningful stories! This component showcases professional data presentation patterns.
 // 
-// What this component does:
-// - Takes insights (interesting facts about your data) and displays them nicely
-// - Uses icons to make different types of insights easy to recognize
-// - Shows confidence scores so users know how reliable each insight is
-// - Handles empty states gracefully when no insights are available
-//
+// Journey milestone: You've learned React basics (Weeks 1-3), now master data analysis and visualization!
+// 
 // Learning objectives:
-// - Component props and TypeScript interfaces (how components receive data)
-// - Conditional rendering patterns (showing/hiding things based on conditions)
-// - Icon usage and visual hierarchy (making interfaces intuitive)
-// - Badge components for metadata display (showing extra information)
-//
-// Real-world context:
-// - Data analysis tools like Tableau, PowerBI use similar insight panels
-// - This teaches you how to present complex information simply
-// - Pattern used in dashboards, analytics tools, and reporting systems
+// - Build intelligent data analysis systems
+// - Create engaging, accessible user interfaces
+// - Master conditional rendering and dynamic styling
+// - Present complex information clearly and beautifully
 
 interface InsightsPanelProps {
   insights: DataInsight[];

@@ -5,33 +5,36 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { DataRow } from '@/types/data';
 import { getDataSummary, getColumnData } from '@/utils/dataAnalysis';
 
-// 🟡 MEDIUM - Week 6: Data Visualization Component
-// TODO: Students - This component creates interactive charts from your data
+// 📊 Week 6: Professional Data Visualization - Making Your Data Come Alive
+// Students - Transform raw data into compelling visual stories! This component showcases advanced React patterns.
+// 
+// Journey milestone: By now you've built the foundation (Weeks 1-5), now we're adding professional polish!
+// 
 // Learning objectives:
-// - React hooks (useMemo for performance)
-// - Recharts library usage
-// - Dynamic chart generation
-// - Responsive design principles
+// - Master React performance optimization with useMemo
+// - Create dynamic, responsive charts with Recharts
+// - Implement user-controlled data visualization
+// - Apply professional UI/UX patterns
 
 interface ChartSectionProps {
   data: DataRow[];
   showAll?: boolean;
 }
 
-// Color palette for charts - TODO: Week 6 - Make this customizable
+// Color palette for charts - Week 8 enhancement: Make this theme-aware and customizable
 const COLORS = ['#3B82F6', '#EF4444', '#10B981', '#F59E0B', '#8B5CF6', '#EC4899'];
 
 const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
-  // 🟢 EASY - React Performance Optimization
-  // TODO: Students - Learn about useMemo hook
+  // 🚀 React Performance Optimization - Critical for Professional Apps
+  // Students - Master the useMemo hook for optimal performance
   // Why do we use useMemo here? What happens without it?
-  // HINT: Prevents expensive recalculations on every render
+  // Answer: Prevents expensive recalculations on every render, keeping your app fast!
   const summary = useMemo(() => getDataSummary(data), [data]);
   
-  // 🟡 MEDIUM - Dynamic Column Selection
-  // TODO: Students - Week 6: Add user control over which columns to visualize
+  // 🎯 Week 6-7: Dynamic User Controls - Professional Dashboard Feature
+  // Students - Add user control over which columns to visualize
   // Current: Automatically selects first 2 numeric columns
-  // Enhancement: Let users choose which columns to display
+  // Week 7 enhancement: Let users choose columns, filter data, and save preferences
   const numericColumns = useMemo(() => {
     return Object.entries(summary.columnTypes)
       .filter(([_, type]) => type === 'number')
@@ -39,15 +42,15 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
       .slice(0, showAll ? 10 : 2);
   }, [summary, showAll]);
 
-  // 🟡 MEDIUM - Chart Data Preparation
-  // TODO: Students - Week 6: Optimize data preparation
-  // Current limitation: Only shows first 20 rows
-  // Consider: Pagination, aggregation, or sampling for large datasets
+  // 📈 Week 6-8: Smart Data Processing - Handling Real-World Data
+  // Students - Learn to handle large datasets professionally
+  // Current: Shows first 20 rows (good for demos)
+  // Week 8 enhancement: Add pagination, aggregation, and intelligent sampling
   const chartData = useMemo(() => {
     if (numericColumns.length === 0) return [];
     
-    // TODO: Improve row labeling strategy
-    // HINT: Try to use meaningful labels instead of "Row 1, Row 2..."
+    // Week 7 improvement: Use meaningful labels instead of "Row 1, Row 2..."
+    // Try using actual data values for better chart readability
     return data.slice(0, 20).map((row, index) => {
       const item: any = { name: `Row ${index + 1}` };
       numericColumns.forEach(col => {
@@ -57,9 +60,9 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
     });
   }, [data, numericColumns]);
 
-  // 🟢 EASY - Error Handling & User Feedback
-  // TODO: Students - Week 3: Improve error messages
-  // Make them more helpful and actionable
+  // 💡 Week 3-4: Professional Error Handling
+  // Students - Create helpful, actionable error messages
+  // Good UX guides users toward success, even when things go wrong
   if (numericColumns.length === 0) {
     return (
       <Card>
@@ -70,16 +73,16 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
           <p className="text-gray-500 text-center py-8">
             No numeric columns found for visualization. Upload data with numeric values to see charts.
           </p>
-          {/* TODO: Add helpful tips for data format */}
+          {/* Week 4 enhancement: Add helpful tips for data format and examples */}
         </CardContent>
       </Card>
     );
   }
 
-  // 🟡 MEDIUM - Chart Configuration
-  // TODO: Students - Week 6: Add more chart types
-  // Current: bar, line, pie
-  // Add: scatter plot, area chart, histogram, box plot
+  // 📊 Week 7-8: Advanced Chart Library - Professional Visualization Options
+  // Students - Expand your visualization toolkit
+  // Current: bar, line, pie charts (solid foundation!)
+  // Week 8 additions: scatter plots, area charts, histograms, and interactive features
   const charts = showAll ? [
     { type: 'bar', title: 'Bar Chart' },
     { type: 'line', title: 'Line Chart' },
@@ -92,21 +95,21 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
         <Card key={type}>
           <CardHeader>
             <CardTitle>{title}</CardTitle>
-            {/* TODO: Week 6 - Add chart controls (zoom, filter, export) */}
+            {/* Week 8-9: Add professional chart controls (zoom, filter, export) */}
           </CardHeader>
           <CardContent>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
-                {/* 🟡 MEDIUM - Chart Type Implementation */}
-                {/* TODO: Students - Week 6: Understand each chart type */}
-                {/* When to use bar vs line vs pie charts? */}
+                {/* 🎨 Week 6: Master Chart Selection - Data Visualization Best Practices */}
+                {/* Students - Learn when to use bar vs line vs pie charts */}
+                {/* Professional tip: Chart choice should match your data story! */}
                 {type === 'bar' ? (
                   <BarChart data={chartData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="name" />
                     <YAxis />
                     <Tooltip />
-                    {/* TODO: Add custom tooltip content */}
+                    {/* Week 7: Add custom tooltip content for better user experience */}
                     {numericColumns.map((column, idx) => (
                       <Bar 
                         key={column} 
@@ -132,10 +135,10 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
                     ))}
                   </LineChart>
                 ) : (
-                  // 🔴 ADVANCED - Pie Chart Implementation
-                  // TODO: Students - Week 6: Handle pie chart data properly
-                  // Current limitation: Only uses first numeric column
-                  // Consider: How to meaningfully represent multiple columns in pie chart?
+                  // 🍰 Week 6-7: Smart Pie Chart Implementation
+                  // Students - Learn to handle pie chart data professionally
+                  // Current: Uses first numeric column (perfect for learning!)
+                  // Week 7: Add multi-column support and intelligent data grouping
                   <PieChart>
                     <Pie
                       data={getColumnData(data, numericColumns[0]).slice(0, 6)}
@@ -164,10 +167,16 @@ const ChartSection = ({ data, showAll = false }: ChartSectionProps) => {
 
 export default ChartSection;
 
-// 🔴 ADVANCED - Week 7-8: Component Enhancement Ideas
-// TODO: Students - Add these advanced features:
-// 1. Chart interaction (click to drill down)
-// 2. Real-time data updates
-// 3. Chart export functionality (PNG, PDF)
-// 4. Custom chart themes
-// 5. Accessibility improvements (ARIA labels, keyboard navigation)
+// 🚀 Week 8-10: Professional Features - Taking Your Charts to Production Level
+// Students - Choose your advanced features to implement:
+// 
+// Week 8-9 Options:
+// • Interactive drilling (click charts to explore deeper)
+// • Real-time data updates and live dashboards
+// • Professional export features (PNG, PDF, sharing)
+// • Custom themes that match your brand
+// 
+// Week 10 Polish:
+// • Accessibility excellence (ARIA labels, keyboard navigation)
+// • Performance optimization for large datasets
+// • Mobile-responsive chart behaviors

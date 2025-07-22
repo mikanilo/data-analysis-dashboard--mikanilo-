@@ -6,14 +6,16 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { DataRow } from '@/types/data';
 
-// 🔴 ADVANCED - Week 7-8: AI Integration Component
-// TODO: Students - This is where you'll integrate OpenAI/Anthropic APIs
+// 🤖 Week 7-8: AI Integration - Building Intelligent Conversations
+// Students - This is where your dashboard becomes truly intelligent! You're building the future of data analysis.
+// 
+// Journey milestone: You've mastered React fundamentals (Weeks 1-6), now add cutting-edge AI capabilities!
+// 
 // Learning objectives:
-// - API integration patterns
-// - Async/await and Promise handling
-// - Error handling for external services
-// - Building conversational interfaces
-// - Context management for AI conversations
+// - Master API integration patterns with real-world AI services
+// - Handle async operations and error states professionally
+// - Build conversational interfaces that users love
+// - Manage context and memory in AI conversations
 
 interface ChatInterfaceProps {
   data: DataRow[];
@@ -27,59 +29,60 @@ interface ChatMessage {
 }
 
 const ChatInterface = ({ data }: ChatInterfaceProps) => {
-  // 🟢 EASY - React State Management
-  // TODO: Students - Week 5: Understand useState for managing chat state
-  // Why do we need separate state for messages, input, and loading?
+  // 🔧 Week 5: React State Mastery - Building Interactive UIs
+  // Students - Learn why we need separate state for different UI concerns
+  // Professional tip: Well-organized state makes complex UIs manageable!
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // 🔴 ADVANCED - Week 7-8: AI API Integration
-  // TODO: Students - This is your main implementation task!
-  // Replace the setTimeout with real AI API calls
+  // 🚀 Week 7-8: YOUR MAIN CHALLENGE - Real AI Integration!
+  // Students - Replace this placeholder with actual AI API calls
+  // This is where your app transforms from demo to production-ready tool!
   const handleSendMessage = async () => {
     if (!input.trim()) return;
 
-    // 🟢 EASY - Message Creation
-    // TODO: Students - Week 5: Understand object creation and state updates
+    // 🎯 Week 5: Professional Object Creation Patterns
+    // Students - Master immutable state updates and object creation
+    // Why do we create new objects instead of modifying existing ones?
     const userMessage: ChatMessage = {
-      id: Date.now().toString(), // TODO: Use better ID generation (UUID)
+      id: Date.now().toString(), // Week 6 improvement: Use proper UUID generation
       type: 'user',
       content: input,
       timestamp: new Date()
     };
 
-    // 🟡 MEDIUM - State Updates with Previous State
-    // TODO: Students - Week 5: Why do we use prev => [...prev, userMessage]?
-    // HINT: React state immutability principles
+    // 🔄 Week 5: React Immutability Principles - Critical for Reliable Apps
+    // Students - Why do we use prev => [...prev, userMessage]?
+    // Answer: React requires immutable updates for state changes to trigger re-renders!
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsLoading(true);
 
-    // 🔴 ADVANCED - Week 7-8: REPLACE THIS SECTION WITH REAL AI INTEGRATION
-    // TODO: Students - Implement actual AI API call here
+    // 🚀 Week 7-8: REPLACE THIS ENTIRE SECTION WITH REAL AI INTEGRATION
+    // Students - Your mission: Implement actual AI API calls here!
     // 
-    // Steps to implement:
-    // 1. Choose AI provider (OpenAI, Anthropic, etc.)
-    // 2. Set up API credentials (environment variables)
-    // 3. Create API request with user message + data context
-    // 4. Handle API response and errors
-    // 5. Stream responses for better UX (optional)
+    // Implementation roadmap:
+    // 1. Choose your AI provider (OpenAI, Anthropic, Google AI, etc.)
+    // 2. Set up API credentials securely (environment variables)
+    // 3. Create API requests with user message + data context
+    // 4. Handle API responses and error states gracefully
+    // 5. Optional: Add streaming responses for premium user experience
     //
-    // Example structure:
+    // Example implementation pattern:
     // try {
     //   const response = await fetch('/api/ai-chat', {
     //     method: 'POST',
     //     headers: { 'Content-Type': 'application/json' },
     //     body: JSON.stringify({ 
     //       message: input, 
-    //       dataContext: data.slice(0, 100) // Limit for token usage
+    //       dataContext: data.slice(0, 100) // Smart context limiting
     //     })
     //   });
     //   const aiResponse = await response.json();
-    //   // Process and display AI response
+    //   // Process and display AI response professionally
     // } catch (error) {
-    //   // Handle errors gracefully
+    //   // Handle errors gracefully with user-friendly messages
     // }
     
     // PLACEHOLDER IMPLEMENTATION - REMOVE WHEN IMPLEMENTING REAL AI
@@ -94,17 +97,17 @@ const ChatInterface = ({ data }: ChatInterfaceProps) => {
       setIsLoading(false);
     }, 1000);
 
-    // TODO: Week 8 - Add conversation memory
-    // HINT: Send previous messages as context to maintain conversation flow
+    // Week 8-9: Add conversation memory for contextual responses
+    // Professional tip: AI remembers previous context for natural conversations
     
-    // TODO: Week 8 - Add data-aware responses
-    // HINT: Include relevant data samples in the AI prompt for context
+    // Week 8-9: Make AI responses data-aware and insightful
+    // Include relevant data samples in prompts for contextual intelligence
   };
 
-  // 🟡 MEDIUM - Advanced User Experience
-  // TODO: Students - Week 5-6: Enhance the chat interface
-  // Current features: basic messaging
-  // Add: message reactions, typing indicators, message editing, conversation export
+  // 🎨 Week 5-6: Advanced User Experience Design
+  // Students - Transform basic messaging into professional chat interfaces
+  // Current: Core messaging works perfectly! 
+  // Week 6-7 enhancements: Add reactions, typing indicators, message editing, conversation export
 
   return (
     <Card className="h-[500px] flex flex-col">
@@ -112,28 +115,28 @@ const ChatInterface = ({ data }: ChatInterfaceProps) => {
         <CardTitle className="flex items-center gap-2">
           <MessageCircle className="h-5 w-5" />
           Data Assistant
-          {/* TODO: Week 7 - Add AI model indicator */}
+          {/* Week 7-8: Add AI model indicator and settings */}
         </CardTitle>
         <p className="text-sm text-gray-600">
           Ask questions about your data or get help understanding insights
         </p>
       </CardHeader>
       <CardContent className="flex-1 flex flex-col">
-        {/* 🟡 MEDIUM - Messages Display Area */}
-        {/* TODO: Students - Week 5: Understand scrollable containers and flex layouts */}
+        {/* 📱 Week 5: Professional Layout Design - Responsive and Accessible */}
+        {/* Students - Master flexible layouts that work on any device */}
         <div className="flex-1 overflow-y-auto space-y-4 mb-4 min-h-0">
           {messages.length === 0 ? (
-            // 🟢 EASY - Empty State Design
-            // TODO: Students - Week 3: Create engaging empty states
+            // 🎯 Week 3-4: Engaging Empty States - Guide Users to Success
+            // Students - Create empty states that inspire action, not confusion
             <div className="text-center text-gray-500 py-8">
               <MessageCircle className="h-12 w-12 mx-auto mb-4 opacity-50" />
               <p>Start a conversation about your data!</p>
               <p className="text-sm mt-2">Try asking: "What patterns do you see?" or "Explain this chart"</p>
-              {/* TODO: Add sample questions based on data type */}
+              {/* Week 5: Add smart sample questions based on actual data type */}
             </div>
           ) : (
-            // 🟡 MEDIUM - Message Rendering
-            // TODO: Students - Week 5: Understand array mapping and conditional styling
+            // 🎨 Week 5: Dynamic Message Rendering - Professional Chat UI
+            // Students - Learn array mapping and conditional styling for interactive interfaces
             messages.map((message) => (
               <div
                 key={message.id}
@@ -150,26 +153,26 @@ const ChatInterface = ({ data }: ChatInterfaceProps) => {
                   <p className="text-xs opacity-70 mt-1">
                     {message.timestamp.toLocaleTimeString()}
                   </p>
-                  {/* TODO: Week 6 - Add message actions (copy, edit, delete) */}
+                  {/* Week 6-7: Add message actions (copy, edit, delete, reactions) */}
                 </div>
               </div>
             ))
           )}
           
-          {/* 🟢 EASY - Loading State */}
-          {/* TODO: Students - Week 5: Create better loading animations */}
+          {/* 💫 Week 5: Professional Loading States */}
+          {/* Students - Create engaging loading animations that keep users interested */}
           {isLoading && (
             <div className="flex justify-start">
               <div className="bg-gray-100 text-gray-900 p-3 rounded-lg">
                 <p className="text-sm">Thinking...</p>
-                {/* TODO: Add animated typing indicator */}
+                {/* Week 6: Add animated typing indicator and response preview */}
               </div>
             </div>
           )}
         </div>
 
-        {/* 🟡 MEDIUM - Input Area */}
-        {/* TODO: Students - Week 5: Understand form handling and keyboard events */}
+        {/* ⌨️ Week 5: Advanced Form Handling - Professional Input Experience */}
+        {/* Students - Master form handling and keyboard events for smooth user interactions */}
         <div className="flex gap-2">
           <Textarea
             value={input}
@@ -177,8 +180,8 @@ const ChatInterface = ({ data }: ChatInterfaceProps) => {
             placeholder="Ask about your data..."
             className="flex-1 min-h-[60px] resize-none"
             onKeyDown={(e) => {
-              // TODO: Week 5 - Why do we check for shiftKey?
-              // HINT: Allow Shift+Enter for new lines, Enter to send
+              // Week 5: Why check shiftKey? Allows Shift+Enter for new lines, Enter to send!
+              // Professional UX pattern used in Slack, Discord, and other chat apps
               if (e.key === 'Enter' && !e.shiftKey) {
                 e.preventDefault();
                 handleSendMessage();
@@ -194,8 +197,8 @@ const ChatInterface = ({ data }: ChatInterfaceProps) => {
           </Button>
         </div>
         
-        {/* TODO: Week 6 - Add input enhancements */}
-        {/* Ideas: character count, auto-resize, voice input, attachment support */}
+        {/* Week 6-7: Professional Input Enhancements */}
+        {/* Ideas: character count, auto-resize, voice input, file attachments */}
       </CardContent>
     </Card>
   );
@@ -203,26 +206,21 @@ const ChatInterface = ({ data }: ChatInterfaceProps) => {
 
 export default ChatInterface;
 
-// 🔴 ADVANCED - Week 8-9: Advanced Features to Implement
-// TODO: Students - Choose from these advanced features:
+// 🚀 Week 8-10: Advanced AI Features - Production-Level Intelligence
+// Students - Choose your advanced features to implement:
 // 
-// 1. Conversation Context Management
-//    - Store conversation history
-//    - Implement conversation summarization
-//    - Add conversation branching
+// Week 8: Core AI Enhancements
+// • Conversation context management and memory
+// • AI response streaming for real-time typing effects
+// • Multiple AI model support and switching
 // 
-// 2. AI Response Enhancement
-//    - Streaming responses (real-time typing)
-//    - Response regeneration
-//    - Multiple AI model support
+// Week 9: Smart Data Integration
+// • Chart generation directly from chat conversations
+// • Data filtering and analysis through natural language
+// • Export insights and conversations to reports
 // 
-// 3. Data Integration Features
-//    - Chart generation from chat
-//    - Data filtering through conversation
-//    - Export insights to reports
-// 
-// 4. User Experience Improvements
-//    - Dark/light mode support
-//    - Conversation export/import
-//    - Keyboard shortcuts
-//    - Mobile-responsive design
+// Week 10: Professional Polish
+// • Dark/light mode support throughout
+// • Conversation import/export functionality
+// • Keyboard shortcuts and accessibility features
+// • Mobile-responsive chat experience

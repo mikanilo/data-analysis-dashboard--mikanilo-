@@ -3,30 +3,29 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// 🟢 EASY - Week 1: Project Foundation
-// TODO: Students - This is the entry point of your React application
-// This file renders the main App component into the DOM
+// 📚 Week 1: Foundation Building - React Application Entry Point
+// Students - This is where your React journey begins! This file is the entry point of your data analysis platform.
 // 
-// Learning objectives:
-// - Understand how React applications start
-// - Learn about the createRoot API (React 18 feature)
-// - See how CSS is imported globally
+// Learning objectives for your 10-week journey:
+// - Master React fundamentals and modern patterns
+// - Build a professional data analysis dashboard
+// - Integrate advanced features like AI chat and real-time insights
 //
-// What's happening here:
-// 1. We import React's createRoot function (the new way to start React apps)
-// 2. We import our main App component (the heart of our application)
-// 3. We import global CSS styles that apply to the entire app
-// 4. We tell React to render our App inside the HTML element with id="root"
+// What's happening in this file:
+// 1. We import React's createRoot function (the modern React 18 approach)
+// 2. We import our main App component (the heart of your application)
+// 3. We import global CSS styles that create your app's visual foundation
+// 4. We tell React to render your App inside the HTML element with id="root"
 //
-// Why is this important?
-// - Every React app needs an entry point - this is it!
+// Why this matters:
+// - Every React app needs an entry point - this is yours!
 // - The createRoot API is React 18's modern way to start applications
-// - This pattern is used in almost every React project you'll see
+// - This pattern is used in virtually every React project you'll encounter
 //
-// Next steps:
-// 1. Explore the App.tsx file to see the main application structure
-// 2. Check out index.css to understand global styles
-// 3. Run `npm run dev` to start the development server
+// Your next steps in Week 1:
+// 1. Explore App.tsx to see how components work together
+// 2. Check out index.css to understand your design system
+// 3. Run `npm run dev` to see your app come to life
 
 createRoot(document.getElementById("root")!).render(<App />);
 

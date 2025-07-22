@@ -1,9 +1,16 @@
 
 import { DataRow, DataInsight } from '@/types/data';
 
-// 🟡 MEDIUM - Week 2: Data Processing & Analysis
-// TODO: Students - This file contains utilities for analyzing uploaded CSV data
-// You'll enhance these functions to provide more sophisticated insights
+// 📈 Week 2-3: Professional Data Processing - The Foundation of Smart Analytics
+// Students - Master the art of data analysis! These utilities power your entire dashboard.
+// 
+// Journey milestone: Week 2-3 focuses on understanding data deeply before visualization
+// 
+// What you'll build:
+// - Robust data type detection systems
+// - Statistical analysis algorithms  
+// - Pattern recognition for automated insights
+// - Professional error handling throughout
 
 export interface DataSummary {
   totalRows: number;
@@ -13,12 +20,9 @@ export interface DataSummary {
   columnTypes: Record<string, 'number' | 'string' | 'boolean'>;
 }
 
-// 🟢 EASY - Week 2: Basic Data Summary
-// TODO: Students - This function analyzes the structure of your dataset
-// Learning objectives:
-// - Understand data type detection
-// - Learn about JavaScript array methods (forEach, filter, map)
-// - Practice TypeScript interfaces
+// 🎯 Week 2: Data Structure Analysis - Understanding Your Data's DNA
+// Students - Learn to analyze data structure before diving into insights
+// Professional tip: Always understand your data deeply before building features!
 export const getDataSummary = (data: DataRow[]): DataSummary => {
   // TODO: Add error handling for malformed data
   // HINT: What happens if data is null or contains invalid rows?
