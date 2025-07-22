@@ -87,7 +87,25 @@ You're building a **data dashboard** that:
 - Handling file uploads
 - Building responsive layouts
 
-## 📅 10-Week Learning Plan
+## 📚 10-Week Learning Plan
+
+### Choose Your Learning Track
+
+**🎯 Core Path (Weeks 1-6)**: Build a complete, functional data dashboard
+- Perfect for beginners learning React and TypeScript fundamentals
+- Results in a fully working CSV analysis tool
+- Great foundation that you can be proud of
+
+**🚀 Advanced Path (Weeks 7-10)**: Enhance your dashboard with professional features  
+- Builds directly on your Core Path project
+- Adds AI integration, advanced visualizations, and polish
+- Creates a portfolio-worthy application ready for the real world
+
+Both paths work together as a complete 10-week journey. After Week 6, you'll have a finished project, and Weeks 7-10 will transform it into something truly impressive!
+
+---
+
+## 🎯 CORE PATH: Build Your Dashboard (Weeks 1-6)
 
 ### Week 1: Get Familiar 🟢 EASY
 **What you'll learn in class:**
@@ -168,6 +186,19 @@ You're building a **data dashboard** that:
 - Create better insight descriptions
 - Make insights more actionable
 
+**🎉 Milestone: Your Core Dashboard is Complete!**
+You now have a fully functional data analysis dashboard that can:
+- Upload and display CSV files
+- Show interactive charts
+- Generate basic insights
+- Export data
+
+---
+
+## 🚀 ADVANCED PATH: Professional Features (Weeks 7-10)
+
+Ready to take your dashboard to the next level? These weeks build on your complete core project to add professional-grade features.
+
 ### Week 7: Add AI Features 🔴 ADVANCED
 **What you'll learn in class:**
 - Working with APIs
@@ -219,6 +250,13 @@ You're building a **data dashboard** that:
 - Create a demo presentation
 - Document your learning journey
 - Celebrate your accomplishment!
+
+**🎉 Final Milestone: Portfolio-Ready Application!**
+You now have a professional-grade data analysis platform that showcases:
+- Advanced React and TypeScript skills
+- AI integration capabilities
+- Professional UI/UX design
+- Real-world deployment experience
 
 ## 🚀 Free Deployment Options
 
