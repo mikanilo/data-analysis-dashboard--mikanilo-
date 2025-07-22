@@ -1,6 +1,6 @@
 
 import { useState, useMemo } from 'react';
-import { RefreshCw, Download, BarChart3, PieChart, LineChart, Table, MessageCircle } from 'lucide-react';
+import { RefreshCw, Download, BarChart3, PieChart, LineChart, Table, MessageCircle, FileText, Image } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -23,13 +23,24 @@ const Dashboard = ({ data, fileName, onReset }: DashboardProps) => {
   const summary = useMemo(() => getDataSummary(data), [data]);
   const insights = useMemo(() => generateDataInsights(data), [data]);
 
-  const handleExport = () => {
-    const csv = [
-      Object.keys(data[0]).join(','),
-      ...data.map(row => Object.values(row).join(','))
+  // Enhanced export functionality
+  const handleExportCSV = () => {
+    const headers = Object.keys(data[0]);
+    const csvContent = [
+      headers.join(','),
+      ...data.map(row => 
+        headers.map(header => {
+          const value = row[header];
+          // Handle values that might contain commas or quotes
+          if (typeof value === 'string' && (value.includes(',') || value.includes('"'))) {
+            return `"${value.replace(/"/g, '""')}"`;
+          }
+          return value;
+        }).join(',')
+      )
     ].join('\n');
     
-    const blob = new Blob([csv], { type: 'text/csv' });
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -38,20 +49,74 @@ const Dashboard = ({ data, fileName, onReset }: DashboardProps) => {
     URL.revokeObjectURL(url);
   };
 
+  const handleExportInsights = () => {
+    const reportContent = `Data Analysis Report
+Generated: ${new Date().toLocaleDateString()}
+Dataset: ${fileName}
+
+DATASET SUMMARY
+================
+Total Rows: ${summary.totalRows.toLocaleString()}
+Total Columns: ${summary.totalColumns}
+Numeric Columns: ${summary.numericColumns}
+Text Columns: ${summary.textColumns}
+
+KEY INSIGHTS
+=============
+${insights.map((insight, index) => 
+  `${index + 1}. ${insight.title}
+   ${insight.description}
+   Confidence: ${insight.confidence}
+   ${insight.column ? `Column: ${insight.column}` : ''}
+`).join('\n')}
+
+MISSING DATA
+=============
+${Object.entries(summary.missingValues)
+  .filter(([_, count]) => count > 0)
+  .map(([column, count]) => `${column}: ${count} missing values (${(count/summary.totalRows*100).toFixed(1)}%)`)
+  .join('\n') || 'No missing data detected'}
+
+COLUMN TYPES
+=============
+${Object.entries(summary.columnTypes)
+  .map(([column, type]) => `${column}: ${type}`)
+  .join('\n')}
+`;
+
+    const blob = new Blob([reportContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `insights_${fileName.replace('.csv', '')}_report.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="space-y-6">
-      {/* Header */}
+      {/* Enhanced Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900">Data Dashboard</h2>
-          <p className="text-gray-600">
-            Analyzing <span className="font-semibold">{fileName}</span> • {data.length} rows • {Object.keys(data[0] || {}).length} columns
-          </p>
+          <h2 className="text-3xl font-bold text-gray-900">Data Analysis Dashboard</h2>
+          <div className="flex items-center gap-4 text-sm text-gray-600 mt-1">
+            <span className="flex items-center gap-1">
+              <FileText className="h-4 w-4" />
+              <span className="font-semibold">{fileName}</span>
+            </span>
+            <span>{data.length.toLocaleString()} rows</span>
+            <span>{Object.keys(data[0] || {}).length} columns</span>
+            <span>{summary.numericColumns} numeric</span>
+          </div>
         </div>
-        <div className="flex gap-2">
-          <Button variant="outline" onClick={handleExport} className="flex items-center gap-2">
+        <div className="flex gap-2 flex-wrap">
+          <Button variant="outline" onClick={handleExportCSV} className="flex items-center gap-2">
             <Download className="h-4 w-4" />
-            Export
+            Export Data
+          </Button>
+          <Button variant="outline" onClick={handleExportInsights} className="flex items-center gap-2">
+            <FileText className="h-4 w-4" />
+            Export Report
           </Button>
           <Button variant="outline" onClick={onReset} className="flex items-center gap-2">
             <RefreshCw className="h-4 w-4" />
@@ -60,38 +125,52 @@ const Dashboard = ({ data, fileName, onReset }: DashboardProps) => {
         </div>
       </div>
 
-      {/* Summary Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card>
+      {/* Enhanced Summary Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Rows</CardTitle>
+            <CardTitle className="text-sm font-medium text-blue-800">Total Records</CardTitle>
+            <BarChart3 className="h-4 w-4 text-blue-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{summary.totalRows.toLocaleString()}</div>
+            <div className="text-2xl font-bold text-blue-900">{summary.totalRows.toLocaleString()}</div>
+            <p className="text-xs text-blue-600 mt-1">rows of data</p>
           </CardContent>
         </Card>
-        <Card>
+        
+        <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Columns</CardTitle>
+            <CardTitle className="text-sm font-medium text-green-800">Data Columns</CardTitle>
+            <Table className="h-4 w-4 text-green-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{summary.totalColumns}</div>
+            <div className="text-2xl font-bold text-green-900">{summary.totalColumns}</div>
+            <p className="text-xs text-green-600 mt-1">total fields</p>
           </CardContent>
         </Card>
-        <Card>
+        
+        <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Numeric Columns</CardTitle>
+            <CardTitle className="text-sm font-medium text-purple-800">Numeric Fields</CardTitle>
+            <LineChart className="h-4 w-4 text-purple-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{summary.numericColumns}</div>
+            <div className="text-2xl font-bold text-purple-900">{summary.numericColumns}</div>
+            <p className="text-xs text-purple-600 mt-1">for analysis</p>
           </CardContent>
         </Card>
-        <Card>
+        
+        <Card className="bg-gradient-to-br from-orange-50 to-orange-100 border-orange-200">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Text Columns</CardTitle>
+            <CardTitle className="text-sm font-medium text-orange-800">Data Quality</CardTitle>
+            <PieChart className="h-4 w-4 text-orange-600" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{summary.textColumns}</div>
+            <div className="text-2xl font-bold text-orange-900">
+              {Object.values(summary.missingValues).every(count => count === 0) ? '100%' : 
+               `${(100 - (Object.values(summary.missingValues).reduce((a, b) => a + b, 0) / (summary.totalRows * summary.totalColumns) * 100)).toFixed(1)}%`}
+            </div>
+            <p className="text-xs text-orange-600 mt-1">complete data</p>
           </CardContent>
         </Card>
       </div>
@@ -101,30 +180,34 @@ const Dashboard = ({ data, fileName, onReset }: DashboardProps) => {
         <TabsList className="grid w-full grid-cols-5">
           <TabsTrigger value="overview" className="flex items-center gap-2">
             <BarChart3 className="h-4 w-4" />
-            Overview
+            <span className="hidden sm:inline">Overview</span>
           </TabsTrigger>
           <TabsTrigger value="charts" className="flex items-center gap-2">
             <PieChart className="h-4 w-4" />
-            Charts
+            <span className="hidden sm:inline">Charts</span>
           </TabsTrigger>
           <TabsTrigger value="insights" className="flex items-center gap-2">
             <LineChart className="h-4 w-4" />
-            Insights
+            <span className="hidden sm:inline">Insights</span>
           </TabsTrigger>
           <TabsTrigger value="chat" className="flex items-center gap-2">
             <MessageCircle className="h-4 w-4" />
-            Chat
+            <span className="hidden sm:inline">Chat</span>
           </TabsTrigger>
           <TabsTrigger value="data" className="flex items-center gap-2">
             <Table className="h-4 w-4" />
-            Data
+            <span className="hidden sm:inline">Data</span>
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value="overview" className="space-y-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <ChartSection data={data} />
-            <InsightsPanel insights={insights.slice(0, 4)} />
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+            <div className="xl:col-span-2">
+              <ChartSection data={data} />
+            </div>
+            <div className="xl:col-span-1">
+              <InsightsPanel insights={insights.slice(0, 6)} />
+            </div>
           </div>
         </TabsContent>
 
