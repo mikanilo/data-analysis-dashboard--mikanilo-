@@ -5,7 +5,7 @@
 ## 🚀 Quick Setup (5 minutes)
 
 ### Step 1: Create Your Copy
-1. **Go to the template repository**: [Your instructor will provide the link]
+1. **Go to the template repository**: [link](https://github.com/bvcc-swe/data-discovery-plug)
 2. **Click the green "Use this template" button**
 3. **Click "Create a new repository"**
 4. **Name your repository**: `data-analysis-dashboard-[your-name]`
