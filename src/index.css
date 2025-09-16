@@ -1,38 +1,73 @@
+/* ==========================================
+   🎨 WEEK 1: index.css - Global Styles & Design System
+   ========================================== */
+
+/* 📚 What is this file?
+   This is your app's "style foundation" - like choosing the paint colors
+   and fonts for your entire house! Everything visual starts here.
+   
+   🔧 WEEK 2: Students will learn about CSS custom properties (variables)
+   🔧 WEEK 3: Students will customize colors and add animations
+   🔧 WEEK 4: Students will add responsive breakpoints and typography scales
+   🔧 WEEK 5: Students will create advanced gradients and shadows */
+
+/* 🚀 Tailwind CSS Integration
+   These three lines import Tailwind's utility classes:
+   - base: resets and defaults (normalize styles across browsers)
+   - components: reusable component styles 
+   - utilities: helper classes like "text-center", "bg-blue-500" */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* 🎨 Design System Foundation
+   All colors, gradients, fonts, etc should be defined here as CSS custom properties.
+   This creates a consistent "design language" across your entire app! */
 
+/* 🌈 Color System - Light Mode
+   These are CSS custom properties (variables) that define our color palette.
+   HSL format: Hue (0-360°), Saturation (0-100%), Lightness (0-100%)
+   
+   Why HSL? It's intuitive! Hue = color wheel, Saturation = vividness, Lightness = brightness
+   Example: hsl(222, 47%, 11%) = dark blue-gray */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* 🏠 Background Colors - The "canvas" of your app */
+    --background: 0 0% 100%;        /* Pure white background */
+    --foreground: 222.2 84% 4.9%;  /* Very dark blue-gray for text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* 🃏 Card Colors - For content containers */
+    --card: 0 0% 100%;              /* White card backgrounds */
+    --card-foreground: 222.2 84% 4.9%;  /* Dark text on cards */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* 📝 Popover Colors - For dropdown menus and tooltips */
+    --popover: 0 0% 100%;           /* White popover backgrounds */
+    --popover-foreground: 222.2 84% 4.9%;  /* Dark text in popovers */
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* 🎯 Primary Colors - Your main brand colors (buttons, links, etc.) */
+    --primary: 222.2 47.4% 11.2%;      /* Dark blue-gray for primary elements */
+    --primary-foreground: 210 40% 98%; /* Light text on primary backgrounds */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* 🎨 Secondary Colors - Supporting brand colors */
+    --secondary: 210 40% 96.1%;        /* Very light gray for secondary elements */
+    --secondary-foreground: 222.2 47.4% 11.2%;  /* Dark text on secondary */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* 🔇 Muted Colors - For less important content */
+    --muted: 210 40% 96.1%;            /* Light gray for muted backgrounds */
+    --muted-foreground: 215.4 16.3% 46.9%;  /* Medium gray for muted text */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* ✨ Accent Colors - For highlights and special emphasis */
+    --accent: 210 40% 96.1%;           /* Light gray accent color */
+    --accent-foreground: 222.2 47.4% 11.2%;  /* Dark text on accent */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* ⚠️ Destructive Colors - For errors and dangerous actions */
+    --destructive: 0 84.2% 60.2%;      /* Red for errors and delete buttons */
+    --destructive-foreground: 210 40% 98%;  /* White text on red backgrounds */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* 🔲 UI Element Colors - For borders, inputs, and interactions */
+    --border: 214.3 31.8% 91.4%;      /* Light gray borders */
+    --input: 214.3 31.8% 91.4%;       /* Light gray input backgrounds */
+    --ring: 222.2 84% 4.9%;           /* Dark focus ring color */
 
     --radius: 0.5rem;
 
@@ -53,9 +88,12 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
+  /* 🌙 Dark Mode Colors
+     Same structure as light mode, but inverted for dark theme.
+     Notice how foreground/background values are flipped! */
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 222.2 84% 4.9%;    /* Dark background */
+    --foreground: 210 40% 98%;       /* Light text */
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -92,12 +130,30 @@
   }
 }
 
+/* 🏗️ Base Styles Application
+   This layer applies our design system to HTML elements.
+   Think of this as "activating" our color variables! */
 @layer base {
+  /* 🌍 Universal Border Style
+     All elements use our design system border color by default */
   * {
     @apply border-border;
   }
 
+  /* 🏠 Body Foundation
+     The main page always uses our background and text colors.
+     This automatically handles light/dark mode switching! */
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* 🔧 WEEK 3: Students will add custom typography and animations here
+     🔧 WEEK 4: Students will add responsive breakpoints and utilities
+     🔧 WEEK 5: Students will add advanced animations and transitions
+     
+     Example additions students will make:
+     .animate-fade-in { animation: fadeIn 0.3s ease-in-out; }
+     .text-gradient { background: linear-gradient(...); -webkit-background-clip: text; }
+     .glass-morphism { backdrop-filter: blur(10px); background: rgba(255,255,255,0.1); }
+  */
 }
