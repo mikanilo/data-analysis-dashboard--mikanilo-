@@ -16,55 +16,61 @@ npm run dev
 # Go to http://localhost:5173
 ```
 
-## � Prerequisites
+## 🎯 Getting Started
 
-Before starting this project, make sure you have these tools installed:
+### For Students: Using This Template
 
-### Required Software
+**This repository is a GitHub template designed for classroom use.**
+
+#### Option 1: Use GitHub Template (Recommended)
+1. **Click the green "Use this template" button** at the top of this repository
+2. **Create your own repository** with a descriptive name
+3. **Clone your new repository** to your computer
+4. **Follow the setup instructions** in [Student Setup Guide](docs/template-setup/STUDENT_SETUP_GUIDE.md)
+
+#### Option 2: Direct Clone (Not Recommended for Students)
+If you just want to try the project without classroom features:
+```bash
+git clone https://github.com/YOUR_INSTRUCTOR/TEMPLATE_REPO.git
+cd TEMPLATE_REPO
+npm install
+npm run dev
+```
+
+### Prerequisites
+
+Before starting, ensure you have:
+
+#### Required Software
 - **Node.js** (version 18 or higher) - [Download here](https://nodejs.org/)
-- **Git** - [Download here](https://git-scm.com/downloads)
+- **Git** - [Download here](https://git-scm.com/downloads)  
 - **VS Code** - [Download here](https://code.visualstudio.com/)
+- **GitHub Account** - [Sign up here](https://github.com)
 
-### GitHub Account
-- Create a free account at [github.com](https://github.com) if you don't have one
-- You'll use this to save your code and deploy your project
-
-### VS Code Extensions (Recommended)
-Install these helpful extensions in VS Code:
-- **ES7+ React/Redux/React-Native snippets** - For React code shortcuts
+#### VS Code Extensions (Recommended)
+- **ES7+ React/Redux/React-Native snippets** - React code shortcuts
 - **Auto Rename Tag** - Automatically renames paired HTML/JSX tags
 - **Prettier - Code formatter** - Keeps your code neat and consistent
 - **TypeScript Importer** - Helps with import statements
 - **Tailwind CSS IntelliSense** - Autocomplete for Tailwind classes
 
-### Verify Your Setup
-Check that everything is installed correctly:
-
+#### Verify Your Setup
 ```bash
-# Check Node.js version (should be 18+)
-node --version
-
-# Check npm version
-npm --version
-
-# Check Git version
-git --version
+# Check versions (all should work)
+node --version  # Should be 18+
+npm --version   # Should be 8+
+git --version   # Any recent version
 ```
 
-### Getting the Project
-```bash
-# Clone this repository
-git clone https://github.com/bvcc-swe/data-discovery-plug.git
+### 📚 Complete Setup Documentation
+- **[Student Setup Guide](docs/template-setup/STUDENT_SETUP_GUIDE.md)** - How to use this template and get updates
+- **[Git Workflow Tutorial](docs/template-setup/GIT_WORKFLOW_TUTORIAL.md)** - Learn Git while building your project
+- **[Troubleshooting Guide](docs/template-setup/TROUBLESHOOTING_GUIDE.md)** - Solve common issues quickly
 
-# Navigate to project folder
-cd data-discovery-plug
-
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-```
+### 🍎 For Instructors
+- **[Instructor Guide](docs/template-setup/INSTRUCTOR_GUIDE.md)** - Managing the template and student updates
+- **[Weekly Exercises](docs/weekly-exercises/)** - Structured learning activities
+- **[Assessment Rubrics](docs/assessment-rubrics/)** - Grading and evaluation tools
 
 ## �📖 What You'll Build
 
