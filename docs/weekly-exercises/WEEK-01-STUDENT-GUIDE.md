@@ -153,9 +153,10 @@ Shoes,160,February
 ## 🏠 Homework Assignments
 
 ### Required Tasks
-- [ ] **Task 1**: Change one more piece of text in the application
-- [ ] **Task 2**: Try changing a different color (find `"gray-"` and change the number)
+- [ ] **Task 1**: Finish in class activities
+- [ ] **Task 2**: Complete exercises in week1-exercises.md 
 - [ ] **Task 3**: Explore `src/components/Dashboard.tsx` and identify 3 different components being used
+
 
 ### Stretch Goals (Optional)
 - [ ] **Challenge 1**: Find where the page title (browser tab) is set and change it

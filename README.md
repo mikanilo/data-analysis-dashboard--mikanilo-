@@ -67,11 +67,6 @@ git --version   # Any recent version
 - **[Git Workflow Tutorial](docs/template-setup/GIT_WORKFLOW_TUTORIAL.md)** - Learn Git while building your project
 - **[Troubleshooting Guide](docs/template-setup/TROUBLESHOOTING_GUIDE.md)** - Solve common issues quickly
 
-### 🍎 For Instructors
-- **[Instructor Guide](docs/template-setup/INSTRUCTOR_GUIDE.md)** - Managing the template and student updates
-- **[Weekly Exercises](docs/weekly-exercises/)** - Structured learning activities
-- **[Assessment Rubrics](docs/assessment-rubrics/)** - Grading and evaluation tools
-
 ## �📖 What You'll Build
 
 You're building a **professional data analysis platform** that:
