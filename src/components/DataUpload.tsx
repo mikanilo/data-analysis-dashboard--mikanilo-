@@ -1,4 +1,14 @@
 
+// ==========================================
+// 📤 WEEK 3: DataUpload.tsx - File Upload Component
+// ==========================================
+// This component handles CSV file uploads and will be enhanced throughout the course
+// 🔧 WEEK 3: Students will add form validation and user input handling
+// 🔧 WEEK 4: Students will enhance data processing capabilities  
+// 🔧 WEEK 5: Students will add advanced file handling and validation
+// 🔧 WEEK 6: Students will connect this to chart generation
+// 🔧 WEEK 7: Students will integrate with external APIs
+
 import { useState, useCallback } from 'react';
 import { Upload, FileText, AlertCircle, CheckCircle, X, FileSpreadsheet } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -7,10 +17,12 @@ import { Progress } from "@/components/ui/progress";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { DataRow } from '@/types/data';
 
+// 📋 Props interface - defines what data this component expects
 interface DataUploadProps {
   onDataLoad: (data: DataRow[], fileName: string) => void;
 }
 
+// 📊 Upload statistics interface
 interface UploadStats {
   fileName: string;
   fileSize: string;
@@ -20,11 +32,21 @@ interface UploadStats {
 }
 
 const DataUpload = ({ onDataLoad }: DataUploadProps) => {
+  // 🧠 Component state - manages upload process and UI feedback
   const [isDragging, setIsDragging] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [stats, setStats] = useState<UploadStats | null>(null);
+  
+  // 🔧 WEEK 3: Add form validation state here
+  // Example: const [validationErrors, setValidationErrors] = useState([]);
+  
+  // 🔧 WEEK 4: Add data processing state here
+  // Example: const [processingStatus, setProcessingStatus] = useState('idle');
+  
+  // 🔧 WEEK 5: Add advanced file handling state here
+  // Example: const [fileMetadata, setFileMetadata] = useState(null);
 
   const formatFileSize = (bytes: number): string => {
     if (bytes === 0) return '0 Bytes';

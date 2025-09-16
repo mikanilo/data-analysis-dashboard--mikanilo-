@@ -1,6 +1,13 @@
 
+// ==========================================
+// 🔢 WEEK 4+: dataAnalysis.ts - Data Processing Utilities
+// ==========================================
+// This file contains functions for analyzing and processing data
+// Students will enhance these utilities throughout the course
+
 import { DataRow } from '@/types/data';
 
+// 📊 Interface definitions for data analysis
 export interface DataSummary {
   totalRows: number;
   totalColumns: number;
@@ -20,6 +27,9 @@ export interface DataInsight {
   details?: any;
 }
 
+// 🔧 WEEK 4: Students will enhance this function with advanced processing
+// 🔧 WEEK 8: Students will add personal data analysis capabilities
+// 🔧 WEEK 9: Students will integrate AI-powered insights here
 export const getDataSummary = (data: DataRow[]): DataSummary => {
   if (!data || data.length === 0) {
     return {

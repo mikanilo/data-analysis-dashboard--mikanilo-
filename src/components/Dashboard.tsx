@@ -1,4 +1,10 @@
 
+// ==========================================
+// 📊 WEEK 4+: Dashboard.tsx - Main Data Visualization Component
+// ==========================================
+// This is the main dashboard that displays after data is uploaded
+// Students will enhance this component throughout weeks 4-10
+
 import { useState, useMemo } from 'react';
 import { RefreshCw, Download, BarChart3, PieChart, LineChart, Table, MessageCircle, FileText, Image } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -11,6 +17,15 @@ import InsightsPanel from './InsightsPanel';
 import ChatInterface from './ChatInterface';
 import { generateDataInsights, getDataSummary } from '@/utils/dataAnalysis';
 
+// 🔧 WEEK 6: Import custom chart components here
+// Example: import CustomChartBuilder from './CustomChartBuilder';
+
+// 🔧 WEEK 8: Import personal data analysis components here  
+// Example: import PersonalAnalytics from './PersonalAnalytics';
+
+// 🔧 WEEK 9: Import AI components here
+// Example: import AIInsightGenerator from './AIInsightGenerator';
+
 interface DashboardProps {
   data: DataRow[];
   fileName: string;
@@ -18,8 +33,28 @@ interface DashboardProps {
 }
 
 const Dashboard = ({ data, fileName, onReset }: DashboardProps) => {
+  // 🧠 Dashboard state management
   const [activeTab, setActiveTab] = useState('overview');
+  
+  // 🔧 WEEK 4: Add data processing state here
+  // Example: const [filteredData, setFilteredData] = useState(data);
+  
+  // 🔧 WEEK 5: Add file handling state here
+  // Example: const [exportFormat, setExportFormat] = useState('csv');
+  
+  // 🔧 WEEK 6: Add chart customization state here
+  // Example: const [chartConfig, setChartConfig] = useState({});
+  
+  // 🔧 WEEK 7: Add API integration state here
+  // Example: const [externalData, setExternalData] = useState([]);
+  
+  // 🔧 WEEK 8: Add personal analytics state here
+  // Example: const [personalInsights, setPersonalInsights] = useState([]);
+  
+  // 🔧 WEEK 9: Add AI insights state here
+  // Example: const [aiGeneratedInsights, setAiGeneratedInsights] = useState([]);
 
+  // 📊 Computed values - these recalculate when data changes
   const summary = useMemo(() => getDataSummary(data), [data]);
   const insights = useMemo(() => generateDataInsights(data), [data]);
 

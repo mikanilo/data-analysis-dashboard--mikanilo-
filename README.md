@@ -1,68 +1,79 @@
 
-# Plug-N-Learn: Data Analysis Dashboard
+# 🎯 Plug-N-Learn: Data Analysis Dashboard
 
-A beginner-friendly project to learn React, TypeScript, and data visualization by building a CSV data analysis tool.
+**A beginner-friendly React project to learn data visualization and analysis**
 
-## 💰 Cost Breakdown
-
-### Free Development (Recommended for Students)
-- **Basic development**: $0 - Use local development with any code editor
-- **Deployment**: $0 - Deploy for free on Vercel, Netlify, or GitHub Pages
-- **Total cost per student**: $0
-
-### Optional Enhanced Features
-- **Lovable platform**: ~$10-15/month (optional, for visual development experience)
-- **AI chat features**: ~$1-5/month (using OpenAI/Anthropic free tiers)
-- **Total enhanced cost per student**: ~$11-20/month
-
-## 🚀 Development Options
-
-### Option 1: Free Local Development (Recommended)
-Perfect for learning React, TypeScript, and data visualization without any costs.
+## 🚀 Quick Start
 
 ```bash
-# 1. Fork this repository on GitHub
-# 2. Clone your fork to your computer
-git clone https://github.com/YOUR-USERNAME/plug-n-learn-dashboard.git
-cd plug-n-learn-dashboard
-
-# 3. Install dependencies
+# 1. Install dependencies
 npm install
 
-# 4. Start the development server
+# 2. Start the development server
 npm run dev
 
-# 5. Open your browser to http://localhost:5173
+# 3. Open in browser
+# Go to http://localhost:5173
 ```
 
-**What you get:**
-- Full React/TypeScript learning experience
-- All visualization features work
-- Can modify and experiment with code
-- Deploy for free when ready
+## � Prerequisites
 
-### Option 2: Enhanced Development with Lovable (Optional)
-Great for beginners who want visual development tools and AI assistance.
+Before starting this project, make sure you have these tools installed:
 
-1. Create a Lovable account
-2. Import this project
-3. Get instant live preview and AI coding help
-4. One-click deployment
+### Required Software
+- **Node.js** (version 18 or higher) - [Download here](https://nodejs.org/)
+- **Git** - [Download here](https://git-scm.com/downloads)
+- **VS Code** - [Download here](https://code.visualstudio.com/)
 
-**What you get additionally:**
-- Visual component editing
-- AI-powered development assistance
-- Instant live preview
-- Simplified deployment
+### GitHub Account
+- Create a free account at [github.com](https://github.com) if you don't have one
+- You'll use this to save your code and deploy your project
 
-## 📖 What You'll Build
+### VS Code Extensions (Recommended)
+Install these helpful extensions in VS Code:
+- **ES7+ React/Redux/React-Native snippets** - For React code shortcuts
+- **Auto Rename Tag** - Automatically renames paired HTML/JSX tags
+- **Prettier - Code formatter** - Keeps your code neat and consistent
+- **TypeScript Importer** - Helps with import statements
+- **Tailwind CSS IntelliSense** - Autocomplete for Tailwind classes
+
+### Verify Your Setup
+Check that everything is installed correctly:
+
+```bash
+# Check Node.js version (should be 18+)
+node --version
+
+# Check npm version
+npm --version
+
+# Check Git version
+git --version
+```
+
+### Getting the Project
+```bash
+# Clone this repository
+git clone https://github.com/bvcc-swe/data-discovery-plug.git
+
+# Navigate to project folder
+cd data-discovery-plug
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+## �📖 What You'll Build
 
 You're building a **professional data analysis platform** that:
-- Lets users upload CSV files
-- Shows the data in interactive tables and charts
-- Provides AI-powered insights about the data
-- Has a chat interface to ask questions about the data
-- Exports processed data and visualizations
+- ✅ Lets users upload CSV files
+- ✅ Shows data in interactive tables and charts
+- ✅ Provides AI-powered insights about the data
+- ✅ Has a chat interface to ask questions about the data
+- ✅ Exports processed data and visualizations
 
 ## 🎯 What This Project Teaches You
 
@@ -298,25 +309,6 @@ npm install --save-dev gh-pages
 # 3. Deploy
 npm run build && npm run deploy
 ```
-
-## 👨‍🏫 For Instructors
-
-### Classroom Setup Recommendations
-- **Cost per class**: $0 (using free local development)
-- **Requirements**: Students need computers with Node.js installed
-- **Internet**: Only needed for initial setup and deployment
-- **AI Features**: Use mock responses or shared API key to minimize costs
-
-### Minimizing Costs
-1. **Use local development** for the entire course
-2. **Share one OpenAI API key** among students (set spending limits)
-3. **Deploy to free platforms** (Vercel, Netlify, GitHub Pages)
-4. **Optional**: Purchase one Lovable subscription for live demos
-
-### Alternative Approaches
-- **Mock AI responses**: Implement fake AI responses for learning without API costs
-- **Offline development**: Focus on React/TypeScript without external APIs
-- **Progressive enhancement**: Start free, add paid features only if budget allows
 
 ## 🤔 What Each File Does
 
