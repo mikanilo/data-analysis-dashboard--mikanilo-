@@ -35,7 +35,7 @@
 ## 🔄 Data Flow Visualization
 
 In React, data flows in **one direction**: from parent to child components.
-![React Data Flow](./Gemini_Generated_Image_nixtbxnixtbxnixt.png)
+![React Data Flow](./application_structure.png)
 *Illustration of how data flows between parent and child components in React*
 
 ### 📊 Props & State Flow
@@ -72,12 +72,12 @@ Parent Component (Index.tsx)
 └─────────────────────────────────────────┘
 ```
 
-![Parent to Child Component](./Gemini_Generated_Image_nixtbxnixtbxnixt%20(2).png)
+![Parent to Child Component](./parent-child.png)
 ---
 
 ## 🧠 State vs Props
 ### State Management Concepts
-![State Management](./Gemini_Generated_Image_nixtbxnixtbxnixt%20(1).png)
+![State Management](./state-props.png)
 *Visual representation of how state works in React applications*
 
 ### Comparison Table
@@ -139,7 +139,7 @@ Parent Component (Index.tsx)
 
 Every React component has a "lifecycle" - a journey from creation to destruction.
 
-![Props vs State](./Gemini_Generated_Image_nixtbxnixtbxnixt%20(3).png)
+![Component lifestyle](./component-lifecycle.png)
 
 ### Lifecycle Flowchart
 
