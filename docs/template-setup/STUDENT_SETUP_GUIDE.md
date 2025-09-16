@@ -30,7 +30,7 @@ npm run dev
 ### Step 3: Connect to Instructor Updates
 ```bash
 # Add the instructor's repository as "upstream"
-git remote add upstream https://github.com/INSTRUCTOR_USERNAME/TEMPLATE_REPO_NAME.git
+git remote add upstream https://github.com/bvcc-swe/data-discovery-plug.git
 
 # Verify it worked
 git remote -v

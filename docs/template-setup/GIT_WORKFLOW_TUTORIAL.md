@@ -58,9 +58,27 @@ git commit -m "Add file size validation to upload component"
 ```
 
 **Good Commit Messages:**
-- ✅ "Fix data table sorting bug"
-- ✅ "Add loading spinner to chart component"
-- ✅ "Complete Week 3 Exercise 2: filtering functionality"
+
+Follow the **Conventional Commits** standard for professional, consistent commit messages:
+📖 **Learn more:** [conventionalcommits.org](https://www.conventionalcommits.org/en/v1.0.0/)
+
+**Format:** `type: description`
+
+**Common types:**
+- `feat:` - New features or functionality
+- `fix:` - Bug fixes
+- `docs:` - Documentation changes
+- `style:` - Code formatting (no logic changes)
+- `refactor:` - Code improvements (no new features)
+- `test:` - Adding or updating tests
+- `chore:` - Maintenance tasks
+
+**Examples:**
+- ✅ `feat: add file upload validation`
+- ✅ `fix: data table sorting bug`
+- ✅ `docs: update README setup instructions`
+- ✅ `style: format DataUpload component`
+- ✅ `chore: complete Week 3 Exercise 2`
 - ❌ "changes"
 - ❌ "stuff"
 - ❌ "idk"
