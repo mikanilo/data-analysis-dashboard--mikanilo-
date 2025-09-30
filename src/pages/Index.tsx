@@ -20,7 +20,7 @@ import DataUpload from '@/components/DataUpload';
 import Dashboard from '@/components/Dashboard';
 import { DataRow } from '@/types/data';
 // 🆕 WEEK 3: Import NameInput demo
-import NameInput from '@/components/NameInput';
+// import NameInput from '@/components/NameInput';
 
 // 🔧 WEEK 2: Import your UploadProgressSimulator component here
 // 🔧 WEEK 3+: Additional imports will be added as you progress
@@ -58,10 +58,10 @@ const Index = () => {
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
             Upload your dataset and instantly discover insights, visualize trends, and explore your data with interactive charts and analytics.
           </p>
-          {/* 🆕 WEEK 3: Live Event Handling Demo */}
-          <div className="mt-8 mb-8 flex justify-center">
+          {/* 🆕 WEEK 3: Live Event Handling Demo (removed NameInput from homepage) */}
+          {/* <div className="mt-8 mb-8 flex justify-center">
             <NameInput />
-          </div>
+          </div> */}
         </div>
 
         {/* 🔧 WEEK 2: ADD YOUR PROGRESS COMPONENT HERE! */}
