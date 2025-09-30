@@ -20,7 +20,8 @@ import Week3Live from "./pages/Week3Live"; // 🎯 Week 3 interactive components
 const queryClient = new QueryClient();
 
 // 🚀 Main App Component - This wraps your entire application
-const App = () => (
+function App() {
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       {/* These Toaster components handle popup notifications */}
@@ -51,6 +52,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+}
 
 export default App;
