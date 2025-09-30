@@ -15,7 +15,6 @@ import NotFound from "./pages/NotFound"; // 🚫 404 error page
 import DemoCounter from "./pages/DemoCounter"; // 🎓 Instructor demo page
 import LiveSession from "./pages/LiveSession"; // 🎮 Live session playground
 import Week3Live from "./pages/Week3Live"; // 🎯 Week 3 interactive components playground
-import DataExplorer from "./components/DataExplorer"; // 📊 Week 3 assignment starter
 
 // Create a client for managing data queries (don't worry about this yet!)
 const queryClient = new QueryClient();
@@ -42,9 +41,6 @@ const App = () => (
           
           {/* 🎯 Week 3 live playground - interactive components & user input */}
           <Route path="/week3-live" element={<Week3Live />} />
-          
-          {/* � Week 3 assignment starter - data explorer component */}
-          <Route path="/data-explorer" element={<DataExplorer />} />
           
           {/* �🔧 WEEK 2+: Add new routes here as you build more pages */}
           {/* Example: <Route path="/dashboard" element={<Dashboard />} /> */}

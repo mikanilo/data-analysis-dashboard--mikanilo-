@@ -1,5 +1,4 @@
 import NameInput from '@/components/NameInput';
-import LiveCodingNameInput from '../../instructor-week3/live-coding/NameInput-demo';
 
 const Week3Live = () => {
   return (
@@ -17,16 +16,11 @@ const Week3Live = () => {
           </p>
         </div>
         <div className="flex flex-col items-center gap-12">
-          <div>
-            <NameInput />
-            <p className="text-xs text-gray-400 mt-2">(Student assignment version)</p>
-          </div>
-          <div className="w-full max-w-md">
-            <LiveCodingNameInput />
-            <p className="text-xs text-gray-400 mt-2">(Instructor live-coding demo)</p>
-          </div>
+          <NameInput />
         </div>
       </div>
     </div>
   );
 };
+
+export default Week3Live;
