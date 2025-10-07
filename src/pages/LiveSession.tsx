@@ -1,25 +1,30 @@
-import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import InteractivePractice from "@/components/InteractivePractice";
 
 // 🎯 Basic Counter Component
 const BasicCounter = () => {
   const [count, setCount] = useState(0);
-  
+
   return (
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-lg">1. Basic Counter</CardTitle>
-        <p className="text-sm text-gray-600">Simple useState with button click</p>
+        <p className="text-sm text-gray-600">
+          Simple useState with button click
+        </p>
       </CardHeader>
       <CardContent>
         <div className="text-center space-y-4">
           <div className="text-4xl font-bold text-blue-600">{count}</div>
           <div className="space-x-2">
             <Button onClick={() => setCount(count + 1)}>+1</Button>
-            <Button variant="outline" onClick={() => setCount(0)}>Reset</Button>
+            <Button variant="outline" onClick={() => setCount(0)}>
+              Reset
+            </Button>
           </div>
         </div>
       </CardContent>
@@ -30,24 +35,32 @@ const BasicCounter = () => {
 // 🎯 Multi-Button State Component
 const MultiButtonTracker = () => {
   const [clicks, setClicks] = useState(0);
-  
+
   return (
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-lg">2. Multi-Button State</CardTitle>
-        <p className="text-sm text-gray-600">Multiple buttons affecting same state</p>
+        <p className="text-sm text-gray-600">
+          Multiple buttons affecting same state
+        </p>
       </CardHeader>
       <CardContent>
         <div className="text-center space-y-4">
           <div>
             <span className="text-2xl font-bold">Total clicks: </span>
-            <Badge variant="secondary" className="text-xl px-3 py-1">{clicks}</Badge>
+            <Badge variant="secondary" className="text-xl px-3 py-1">
+              {clicks}
+            </Badge>
           </div>
           <div className="space-x-2">
             <Button onClick={() => setClicks(clicks + 1)}>+1</Button>
             <Button onClick={() => setClicks(clicks + 5)}>+5</Button>
-            <Button variant="destructive" onClick={() => setClicks(clicks - 1)}>-1</Button>
-            <Button variant="outline" onClick={() => setClicks(0)}>Reset</Button>
+            <Button variant="destructive" onClick={() => setClicks(clicks - 1)}>
+              -1
+            </Button>
+            <Button variant="outline" onClick={() => setClicks(0)}>
+              Reset
+            </Button>
           </div>
         </div>
       </CardContent>
@@ -57,17 +70,19 @@ const MultiButtonTracker = () => {
 
 // 🎯 Form Input with State
 const NameTracker = () => {
-  const [name, setName] = useState('');
-  
+  const [name, setName] = useState("");
+
   return (
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-lg">3. Form Input State</CardTitle>
-        <p className="text-sm text-gray-600">Controlled input with real-time updates</p>
+        <p className="text-sm text-gray-600">
+          Controlled input with real-time updates
+        </p>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
-          <input 
+          <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -76,7 +91,11 @@ const NameTracker = () => {
           />
           <div className="text-center">
             <p className="text-lg">
-              Hello, <span className="font-bold text-blue-600">{name || 'stranger'}</span>! 👋
+              Hello,{" "}
+              <span className="font-bold text-blue-600">
+                {name || "stranger"}
+              </span>
+              ! 👋
             </p>
           </div>
         </div>
@@ -88,20 +107,20 @@ const NameTracker = () => {
 // 🎯 Interactive Event Handling Playground
 const EventPlayground = () => {
   const [count, setCount] = useState(0);
-  const [name, setName] = useState('');
-  const [color, setColor] = useState('blue');
-  const [message, setMessage] = useState('Welcome!');
-  
+  const [name, setName] = useState("");
+  const [color, setColor] = useState("blue");
+  const [message, setMessage] = useState("Welcome!");
+
   // Multiple event handlers working together
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
     if (e.target.value.length > 0) {
       setMessage(`Hello ${e.target.value}! You have ${count} points.`);
     } else {
-      setMessage('Welcome!');
+      setMessage("Welcome!");
     }
   };
-  
+
   const handleCountChange = (amount: number) => {
     const newCount = count + amount;
     setCount(newCount);
@@ -110,29 +129,35 @@ const EventPlayground = () => {
     }
     // Change color based on count
     if (newCount >= 10) {
-      setColor('green');
+      setColor("green");
     } else if (newCount <= -5) {
-      setColor('red');
+      setColor("red");
     } else {
-      setColor('blue');
+      setColor("blue");
     }
   };
-  
+
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle className="text-lg">4. Interactive Event Playground</CardTitle>
-        <p className="text-sm text-gray-600">Multiple states working together with conditional logic</p>
+        <CardTitle className="text-lg">
+          4. Interactive Event Playground
+        </CardTitle>
+        <p className="text-sm text-gray-600">
+          Multiple states working together with conditional logic
+        </p>
       </CardHeader>
       <CardContent>
-        <div 
-          className="p-6 rounded-lg border-2 space-y-4" 
+        <div
+          className="p-6 rounded-lg border-2 space-y-4"
           style={{ borderColor: color, backgroundColor: `${color}10` }}
         >
-          <h3 className="text-xl font-bold" style={{ color: color }}>{message}</h3>
-          
+          <h3 className="text-xl font-bold" style={{ color: color }}>
+            {message}
+          </h3>
+
           <div className="flex items-center space-x-4">
-            <input 
+            <input
               type="text"
               value={name}
               onChange={handleNameChange}
@@ -141,16 +166,21 @@ const EventPlayground = () => {
             />
             <Badge variant="outline">Count: {count}</Badge>
           </div>
-          
+
           <div className="flex flex-wrap gap-2">
             <Button onClick={() => handleCountChange(1)}>+1 Point</Button>
             <Button onClick={() => handleCountChange(5)}>+5 Points</Button>
-            <Button variant="destructive" onClick={() => handleCountChange(-1)}>-1 Point</Button>
-            <Button variant="outline" onClick={() => setCount(0)}>Reset Count</Button>
+            <Button variant="destructive" onClick={() => handleCountChange(-1)}>
+              -1 Point
+            </Button>
+            <Button variant="outline" onClick={() => setCount(0)}>
+              Reset Count
+            </Button>
           </div>
-          
+
           <p className="text-sm text-gray-600">
-            🎯 Try typing your name and clicking buttons! Watch how everything connects!
+            🎯 Try typing your name and clicking buttons! Watch how everything
+            connects!
           </p>
         </div>
       </CardContent>
@@ -166,17 +196,17 @@ const UploadProgressSimulator = () => {
   const startUpload = () => {
     setIsUploading(true);
     setProgress(0);
-    
+
     const interval = setInterval(() => {
-      setProgress(prevProgress => {
+      setProgress((prevProgress) => {
         const newProgress = prevProgress + Math.random() * 15 + 5; // Random progress chunks
-        
+
         if (newProgress >= 100) {
           clearInterval(interval);
           setIsUploading(false);
           return 100;
         }
-        
+
         return newProgress;
       });
     }, 300);
@@ -189,7 +219,7 @@ const UploadProgressSimulator = () => {
 
   const addProgress = () => {
     if (!isUploading && progress < 100) {
-      setProgress(prev => Math.min(prev + 25, 100));
+      setProgress((prev) => Math.min(prev + 25, 100));
     }
   };
 
@@ -197,13 +227,15 @@ const UploadProgressSimulator = () => {
     <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-lg">5. Upload Progress Simulator</CardTitle>
-        <p className="text-sm text-gray-600">Complex state with intervals and conditional rendering</p>
+        <p className="text-sm text-gray-600">
+          Complex state with intervals and conditional rendering
+        </p>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
           {/* Progress Bar */}
           <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-            <div 
+            <div
               className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-300 ease-out"
               style={{ width: `${progress}%` }}
             />
@@ -211,33 +243,38 @@ const UploadProgressSimulator = () => {
 
           {/* Progress Text and Status */}
           <div className="text-center">
-            <span className="text-3xl font-bold text-blue-600">{Math.round(progress)}%</span>
+            <span className="text-3xl font-bold text-blue-600">
+              {Math.round(progress)}%
+            </span>
             <div className="text-sm text-gray-600 mt-2">
               {isUploading && "📤 Uploading file..."}
               {!isUploading && progress === 0 && "📁 Ready to upload"}
-              {!isUploading && progress > 0 && progress < 100 && "⏸️ Upload paused"}
+              {!isUploading &&
+                progress > 0 &&
+                progress < 100 &&
+                "⏸️ Upload paused"}
               {!isUploading && progress === 100 && "✅ Upload complete!"}
             </div>
           </div>
 
           {/* Control buttons */}
           <div className="flex justify-center gap-2 flex-wrap">
-            <Button 
+            <Button
               onClick={startUpload}
               disabled={isUploading || progress === 100}
             >
-              {isUploading ? 'Uploading...' : 'Start Upload'}
+              {isUploading ? "Uploading..." : "Start Upload"}
             </Button>
-            
-            <Button 
+
+            <Button
               variant="secondary"
               onClick={addProgress}
               disabled={isUploading || progress >= 100}
             >
               +25%
             </Button>
-            
-            <Button 
+
+            <Button
               variant="outline"
               onClick={resetProgress}
               disabled={isUploading}
@@ -256,7 +293,7 @@ const ToggleDemo = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [notifications, setNotifications] = useState(true);
-  
+
   return (
     <Card className="w-full">
       <CardHeader>
@@ -268,46 +305,46 @@ const ToggleDemo = () => {
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <span>Show secret message</span>
-              <Button 
+              <Button
                 variant={isVisible ? "default" : "outline"}
                 onClick={() => setIsVisible(!isVisible)}
               >
-                {isVisible ? 'Hide' : 'Show'}
+                {isVisible ? "Hide" : "Show"}
               </Button>
             </div>
-            
+
             {isVisible && (
               <div className="p-3 bg-blue-50 border border-blue-200 rounded">
                 🎉 Secret: React state is awesome!
               </div>
             )}
-            
+
             <div className="flex items-center justify-between">
               <span>Dark mode</span>
-              <Button 
+              <Button
                 variant={isDarkMode ? "default" : "outline"}
                 onClick={() => setIsDarkMode(!isDarkMode)}
               >
-                {isDarkMode ? 'Light' : 'Dark'}
+                {isDarkMode ? "Light" : "Dark"}
               </Button>
             </div>
-            
+
             <div className="flex items-center justify-between">
               <span>Notifications</span>
-              <Button 
+              <Button
                 variant={notifications ? "default" : "outline"}
                 onClick={() => setNotifications(!notifications)}
               >
-                {notifications ? 'On' : 'Off'}
+                {notifications ? "On" : "Off"}
               </Button>
             </div>
           </div>
-          
+
           <Separator />
-          
+
           <div className="text-sm text-gray-600">
-            Current state: Dark={isDarkMode ? 'true' : 'false'}, 
-            Notifications={notifications ? 'true' : 'false'}
+            Current state: Dark={isDarkMode ? "true" : "false"}, Notifications=
+            {notifications ? "true" : "false"}
           </div>
         </div>
       </CardContent>
@@ -326,7 +363,8 @@ export default function LiveSession() {
             Week 2: Live Session Playground
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Interactive React state examples for hands-on learning. Try each component and watch state in action!
+            Interactive React state examples for hands-on learning. Try each
+            component and watch state in action!
           </p>
           <Badge variant="secondary" className="mt-2">
             🎯 Copy any code you want to experiment with
@@ -341,12 +379,15 @@ export default function LiveSession() {
           <EventPlayground />
           <UploadProgressSimulator />
           <ToggleDemo />
+          <InteractivePractice />
         </div>
 
         {/* React Developer Tools Instructions */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle className="text-xl text-center">🔍 React Developer Tools Challenge</CardTitle>
+            <CardTitle className="text-xl text-center">
+              🔍 React Developer Tools Challenge
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -361,7 +402,8 @@ export default function LiveSession() {
                 </ol>
               </div>
               <p className="text-center text-gray-600">
-                This is how professional React developers debug their applications! 🛠️
+                This is how professional React developers debug their
+                applications! 🛠️
               </p>
             </div>
           </CardContent>
@@ -370,8 +412,12 @@ export default function LiveSession() {
         {/* Code Examples Section */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl text-center">📋 Copy-Paste Code Examples</CardTitle>
-            <p className="text-center text-gray-600">Ready-to-use code for your own experiments</p>
+            <CardTitle className="text-xl text-center">
+              📋 Copy-Paste Code Examples
+            </CardTitle>
+            <p className="text-center text-gray-600">
+              Ready-to-use code for your own experiments
+            </p>
           </CardHeader>
           <CardContent>
             <div className="grid md:grid-cols-2 gap-4">

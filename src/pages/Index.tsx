@@ -34,6 +34,9 @@ import DataUpload from "@/components/DataUpload";
 import Dashboard from "@/components/Dashboard";
 import { DataRow } from "@/types/data";
 import UploadProgressSimulator from "@/components/UploadProgessSim";
+import InteractivePractice from "@/components/InteractivePractice";
+import Week3LiveDemo from "@/components/Week3LiveDemo";
+import NameInput from "@/components/NameInput";
 // 🔧 WEEK 2: Import your UploadProgressSimulator component here
 // 🔧 WEEK 3+: Additional imports will be added as you progress
 
@@ -142,6 +145,38 @@ const Index = () => {
                     automatically generated from your dataset.
                   </CardDescription>
                 </CardHeader>
+              </Card>
+              {/*Interactive Practice*/}
+              <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">
+                    Interactive Practice
+                  </CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <InteractivePractice />
+                </CardContent>
+              </Card>
+              {/* Week 3 live demo*/}
+              <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">Demo</CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Week3LiveDemo />
+                </CardContent>
+              </Card>
+              {/*Name input */}
+              <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">Input Name</CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <NameInput />
+                </CardContent>
               </Card>
             </div>
 

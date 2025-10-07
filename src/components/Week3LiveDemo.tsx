@@ -6,18 +6,13 @@ import { Button } from "./ui/button";
 const COLORS = ["#f87171", "#60a5fa", "#34d399", "#fbbf24", "#a78bfa"];
 
 const Week3LiveDemo = () => {
-  // Counter state
   const [count, setCount] = useState(0);
-  // Name input state
   const [name, setName] = useState("");
   const [greeting, setGreeting] = useState("");
   const [nameError, setNameError] = useState("");
-  // Color picker state
   const [bgColor, setBgColor] = useState("#fff");
-  // Toggle state
   const [showMsg, setShowMsg] = useState(true);
 
-  // Reset all
   const handleReset = () => {
     setCount(0);
     setName("");
@@ -27,7 +22,6 @@ const Week3LiveDemo = () => {
     setShowMsg(true);
   };
 
-  // Name input submit
   const handleNameSubmit = () => {
     setNameError("");
     if (!name.trim()) {
@@ -44,7 +38,7 @@ const Week3LiveDemo = () => {
   return (
     <Card className="max-w-xl mx-auto" style={{ background: bgColor }}>
       <CardHeader>
-        <CardTitle>Week 3 Interactive Demo</CardTitle>
+        <CardTitle>Week Demo</CardTitle>
       </CardHeader>
       <CardContent className="space-y-8">
         {/* Counter Button */}
@@ -58,7 +52,7 @@ const Week3LiveDemo = () => {
           <Input
             placeholder="Enter your name"
             value={name}
-            onChange={e => {
+            onChange={(e) => {
               setName(e.target.value);
               setGreeting("");
               setNameError("");
@@ -73,10 +67,16 @@ const Week3LiveDemo = () => {
         <div className="flex flex-col items-center gap-2">
           <span className="font-semibold">Pick a background color:</span>
           <div className="flex gap-2">
-            {COLORS.map(color => (
+            {COLORS.map((color) => (
               <button
                 key={color}
-                style={{ background: color, width: 32, height: 32, borderRadius: "50%", border: "2px solid #fff" }}
+                style={{
+                  background: color,
+                  width: 32,
+                  height: 32,
+                  borderRadius: "50%",
+                  border: "2px solid #fff",
+                }}
                 onClick={() => setBgColor(color)}
                 aria-label={`Pick ${color}`}
               />
@@ -86,15 +86,19 @@ const Week3LiveDemo = () => {
 
         {/* Toggle Switch */}
         <div className="flex flex-col items-center gap-2">
-          <Button variant="outline" onClick={() => setShowMsg(v => !v)}>
+          <Button variant="outline" onClick={() => setShowMsg((v) => !v)}>
             {showMsg ? "Hide Message" : "Show Message"}
           </Button>
-          {showMsg && <p className="text-blue-600">This message can be toggled!</p>}
+          {showMsg && (
+            <p className="text-blue-600">This message can be toggled!</p>
+          )}
         </div>
 
         {/* Reset All */}
         <div className="flex flex-col items-center gap-2">
-          <Button variant="destructive" onClick={handleReset}>Reset All</Button>
+          <Button variant="destructive" onClick={handleReset}>
+            Reset All
+          </Button>
         </div>
       </CardContent>
     </Card>
