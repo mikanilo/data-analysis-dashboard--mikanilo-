@@ -37,6 +37,8 @@ import UploadProgressSimulator from "@/components/UploadProgessSim";
 import InteractivePractice from "@/components/InteractivePractice";
 import Week3LiveDemo from "@/components/Week3LiveDemo";
 import NameInput from "@/components/NameInput";
+import DataAnalyzer from "@/components/DataAnalyzer";
+
 // 🔧 WEEK 2: Import your UploadProgressSimulator component here
 // 🔧 WEEK 3+: Additional imports will be added as you progress
 
@@ -176,6 +178,15 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <NameInput />
+                </CardContent>
+              </Card>
+              <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">Input Name</CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <DataAnalyzer />
                 </CardContent>
               </Card>
             </div>

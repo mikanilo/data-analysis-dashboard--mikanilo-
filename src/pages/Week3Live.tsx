@@ -1,3 +1,4 @@
+import DataAnalyzer from "@/components/DataAnalyzer";
 import Week3LiveDemo from "../components/Week3LiveDemo";
 import NameInput from "@/components/NameInput";
 const Week3Live = () => {
@@ -20,6 +21,7 @@ const Week3Live = () => {
           <NameInput />
         </div>
         <Week3LiveDemo />
+        <DataAnalyzer />
       </div>
     </div>
   );
