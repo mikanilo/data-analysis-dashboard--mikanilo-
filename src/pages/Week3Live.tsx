@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import Week3LiveDemo from '../components/Demos/Week3LiveDemo';
 
+=======
+import DataAnalyzer from "@/components/DataAnalyzer";
+import Week3LiveDemo from "../components/Week3LiveDemo";
+import NameInput from "@/components/NameInput";
+>>>>>>> 02b3253b94bcc120875d0346874da76e7ad4302d
 const Week3Live = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -12,10 +18,15 @@ const Week3Live = () => {
             Interactive Components & User Input
           </p>
           <p className="text-gray-500 mt-2">
-            Try the NameInput demo below. Focus on controlled components, user input, and validation!
+            Try the NameInput demo below. Focus on controlled components, user
+            input, and validation!
           </p>
         </div>
+        <div className="mb-8">
+          <NameInput />
+        </div>
         <Week3LiveDemo />
+        <DataAnalyzer />
       </div>
     </div>
   );

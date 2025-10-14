@@ -1,5 +1,5 @@
-import NameInput from '../components/NameInput';
-
+import NameInput from "../components/NameInput";
+import DataAnalyzer from "@/components/DataAnalyzer";
 const Week3Live = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -12,11 +12,13 @@ const Week3Live = () => {
             Interactive Components & User Input
           </p>
           <p className="text-gray-500 mt-2">
-            Try the NameInput demo below. Focus on controlled components, user input, and validation!
+            Try the NameInput demo below. Focus on controlled components, user
+            input, and validation!
           </p>
         </div>
         <div className="flex flex-col items-center gap-12">
           <NameInput />
+          <DataAnalyzer />
         </div>
       </div>
     </div>
