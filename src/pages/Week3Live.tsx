@@ -1,11 +1,6 @@
-<<<<<<< HEAD
-import Week3LiveDemo from '../components/Demos/Week3LiveDemo';
-
-=======
 import DataAnalyzer from "@/components/DataAnalyzer";
 import Week3LiveDemo from "../components/Week3LiveDemo";
 import NameInput from "@/components/NameInput";
->>>>>>> 02b3253b94bcc120875d0346874da76e7ad4302d
 const Week3Live = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
