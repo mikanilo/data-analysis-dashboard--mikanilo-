@@ -18,6 +18,8 @@ import Week3Live from "./pages/Week3Live"; // 🎯 Week 3 interactive components
 import Week4LiveDemo from "./components/Demos/Week4LiveDemo";
 import Week5Live from "./components/Demos/Week5Live";
 import Week6Live from "./components/Demos/Week6Live";
+import BrokenDemo from "./pages/BrokenDemo";
+import BrokenDemoSolution from "./pages/BrokenDemoSolution";
 
 // Create a client for managing data queries (don't worry about this yet!)
 const queryClient = new QueryClient();
@@ -53,6 +55,14 @@ function App() {
             <Route path="/week5-live" element={<Week5Live />} />
 
             <Route path="/week6-live" element={<Week6Live />} />
+
+            {/* 🔍 Week 9: Quality Detective Challenge */}
+            <Route path="/broken-demo" element={<BrokenDemo />} />
+            <Route
+              path="/broken-demo-solution"
+              element={<BrokenDemoSolution />}
+            />
+
             {/* ⚠️ Catch-all route - shows 404 for unknown URLs */}
             <Route path="*" element={<NotFound />} />
           </Routes>

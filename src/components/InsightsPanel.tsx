@@ -1,8 +1,9 @@
 import { TrendingUp, AlertTriangle, BarChart3, Info } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { DataInsight } from "@/types/data";
-import { Button } from "@/components/ui/button";
+import { DataInsight, DataRow } from "@/types/data";
+import { Button } from "./ui/button";
+import { useState } from "react";
 
 // 📊 Week 4-5: Smart Data Insights - Bringing Your Data to Life
 // Students - Transform raw data into meaningful stories! This component showcases professional data presentation patterns.
@@ -16,11 +17,21 @@ import { Button } from "@/components/ui/button";
 // - Present complex information clearly and beautifully
 
 interface InsightsPanelProps {
+  data: DataRow[];
   insights: DataInsight[];
   showAll?: boolean;
 }
 
-const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
+const InsightsPanel = ({
+  data,
+  insights,
+  showAll = false,
+}: InsightsPanelProps) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [aiInsight, setAiInsight] = useState<{
+    summary: string;
+    anomalies: string[];
+  }>();
   // 🟢 EASY - Week 3: Icon Mapping Function
   // TODO: Students - Understand switch statements and icon libraries
   //
@@ -47,20 +58,6 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
         return <Info className="h-4 w-4" />;
     }
     // TODO: Week 4 - Add more insight types (seasonal, anomaly, prediction)
-  };
-  const handleGenerateInsight = () => {
-    fetch("http://localhost:4000/insight", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: "Generate AI Insight" }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
   };
 
   // 🟢 EASY - Week 3: Dynamic Styling Function
@@ -89,6 +86,30 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
         return "bg-gray-100 text-gray-800";
     }
     // TODO: Week 4 - Make colors configurable or theme-aware
+  };
+
+  const handleGenerateInsight = () => {
+    setIsLoading(true);
+    fetch("http://localhost:4000/insight", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        prompt: `Talk like a scottish pirate and be concise and generate insights for the following dataset: ${JSON.stringify(
+          data
+        )}`,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setAiInsight(data);
+      })
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   // 🟢 EASY - Week 3: Empty State Handling
@@ -134,7 +155,22 @@ const InsightsPanel = ({ insights, showAll = false }: InsightsPanelProps) => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <Button>Generate AI Insight</Button>
+        <Button onClick={handleGenerateInsight} disabled={isLoading}>
+          {isLoading ? "Generating..." : "Generate AI Insight"}
+        </Button>
+        {aiInsight && (
+          <div className="my-4 border rounded-lg p-4 hover:bg-gray-50 transition-colors">
+            <h4 className="font-medium text-gray-900 mb-1">AI Insight</h4>
+            <p className="text-sm text-gray-600 mb-2 text-balance">
+              {aiInsight.summary}
+            </p>
+            <ul className="list-disc list-inside text-sm text-gray-600 mb-2 text-balance">
+              {aiInsight.anomalies.map((anomaly) => (
+                <li key={anomaly}>{anomaly}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         <div className="space-y-4">
           {/* 🟡 MEDIUM - Week 4: Dynamic List Rendering */}
           {/* TODO: Students - Understand array mapping and complex layouts */}

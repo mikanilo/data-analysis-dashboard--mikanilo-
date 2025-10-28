@@ -1,21 +1,28 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import { generateText } from "ai";
+import { generateObject } from "ai";
+import { z } from "zod";
 import { openai } from "@ai-sdk/openai";
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
+const schema = z.object({
+  summary: z.string(),
+  anomalies: z.array(z.string()),
+});
+
 app.post("/insight", async (req, res) => {
   try {
     const { prompt } = req.body;
-    const { text } = await generateText({
+    const { object } = await generateObject({
       model: openai("gpt-4o-mini"),
+      schema,
       prompt,
     });
-    res.json({ insight: text });
+    res.json({ summary: object.summary, anomalies: object.anomalies });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "AI call failed" });
