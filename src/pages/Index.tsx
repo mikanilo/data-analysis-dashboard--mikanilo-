@@ -14,9 +14,6 @@ import {
   PieChart,
   TrendingUp,
   Database,
-  FileText,
-  Brain,
-  Zap,
 } from "lucide-react";
 
 // 🧩 UI Component imports - pre-built components for your interface
@@ -33,11 +30,8 @@ import {
 import DataUpload from "@/components/DataUpload";
 import Dashboard from "@/components/Dashboard";
 import { DataRow } from "@/types/data";
-import UploadProgressSimulator from "@/components/UploadProgessSim";
-import InteractivePractice from "@/components/InteractivePractice";
-import Week3LiveDemo from "@/components/Week3LiveDemo";
-import NameInput from "@/components/NameInput";
-import DataAnalyzer from "@/components/DataAnalyzer";
+// 🆕 WEEK 3: Import NameInput demo
+// import NameInput from '@/components/NameInput';
 
 // 🔧 WEEK 2: Import your UploadProgressSimulator component here
 // 🔧 WEEK 3+: Additional imports will be added as you progress
@@ -69,16 +63,17 @@ const Index = () => {
 
           {/* 📝 WEEK 1: Students customize this title with their name */}
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-            "Tim's Data Hub"
+            Plug-N-Learn
           </h1>
           <p className="text-xl text-slate-600 mb-2">Data Insight Engine</p>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
             Upload your dataset and instantly discover insights, visualize
             trends, and explore your data with interactive charts and analytics.
           </p>
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-            Built by Tim - Future Software Engineer
-          </p>
+          {/* 🆕 WEEK 3: Live Event Handling Demo (removed NameInput from homepage) */}
+          {/* <div className="mt-8 mb-8 flex justify-center">
+            <NameInput />
+          </div> */}
         </div>
 
         {/* 🔧 WEEK 2: ADD YOUR PROGRESS COMPONENT HERE! */}
@@ -119,21 +114,6 @@ const Index = () => {
                   </CardDescription>
                 </CardHeader>
               </Card>
-              {/* 🚀 Upload Progress Simulator Card */}
-              <Card className="bg-white/50 backdrop-blur-sm border-purple-200">
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Upload className="mr-3 h-6 w-6 text-purple-600" />
-                    Interactive Progress Demo
-                  </CardTitle>
-                  <CardDescription>
-                    Try our upload progress simulator built with React state!
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <UploadProgressSimulator />
-                </CardContent>
-              </Card>
 
               {/* 🧠 Insights Feature Card */}
               <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/70 backdrop-blur-sm">
@@ -147,54 +127,6 @@ const Index = () => {
                     automatically generated from your dataset.
                   </CardDescription>
                 </CardHeader>
-              </Card>
-              {/*Interactive Practice*/}
-              <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl">
-                    Interactive Practice
-                  </CardTitle>
-                  <CardDescription></CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <InteractivePractice />
-                </CardContent>
-              </Card>
-              {/* Week 3 live demo*/}
-              <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl">Demo</CardTitle>
-                  <CardDescription></CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Week3LiveDemo />
-                </CardContent>
-              </Card>
-              {/*Name input */}
-              <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl">Input Name</CardTitle>
-                  <CardDescription></CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <NameInput />
-                </CardContent>
-              </Card>
-              <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl">Data Analyzer</CardTitle>
-                  <CardDescription></CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <DataAnalyzer />
-                </CardContent>
-              </Card>
-              <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
-                <CardHeader className="text-center">
-                  <CardTitle className="text-2xl">AI</CardTitle>
-                  <CardDescription></CardDescription>
-                </CardHeader>
-                <CardContent></CardContent>
               </Card>
             </div>
 
@@ -224,9 +156,6 @@ const Index = () => {
           </>
         )}
       </div>
-      <footer className="text-center py-6 text-sm text-slate-500">
-        &copy; {new Date().getFullYear()} Built by Tim
-      </footer>
     </div>
   );
 };

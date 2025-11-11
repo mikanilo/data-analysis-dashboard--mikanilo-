@@ -1,7 +1,4 @@
-import React from "react";
-import DataAnalyzer from "@/components/DataAnalyzer";
-import Week3LiveDemo from "../components/Week3LiveDemo";
-import NameInput from "@/components/NameInput";
+import Week3LiveDemo from "../components/Demos/Week3LiveDemo";
 
 const Week3Live = () => {
   return (
@@ -19,11 +16,7 @@ const Week3Live = () => {
             input, and validation!
           </p>
         </div>
-        <div className="mb-8">
-          <NameInput />
-        </div>
         <Week3LiveDemo />
-        <DataAnalyzer />
       </div>
     </div>
   );

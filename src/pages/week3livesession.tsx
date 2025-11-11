@@ -1,5 +1,5 @@
 import NameInput from "../components/NameInput";
-import DataAnalyzer from "@/components/DataAnalyzer";
+
 const Week3Live = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
@@ -18,7 +18,6 @@ const Week3Live = () => {
         </div>
         <div className="flex flex-col items-center gap-12">
           <NameInput />
-          <DataAnalyzer />
         </div>
       </div>
     </div>
