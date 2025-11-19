@@ -30,11 +30,21 @@ import {
 import DataUpload from "@/components/DataUpload";
 import Dashboard from "@/components/Dashboard";
 import { DataRow } from "@/types/data";
+
 // 🆕 WEEK 3: Import NameInput demo
 // import NameInput from '@/components/NameInput';
 
 // 🔧 WEEK 2: Import your UploadProgressSimulator component here
+import UploadProgressSim from "@/components/UploadProgressSimulator";
+import UploadProgressSimulator from "@/components/UploadProgressSimulator";
 // 🔧 WEEK 3+: Additional imports will be added as you progress
+import InteractivePractice from "@/components/InteractivePractice";
+import NameInput from "@/components/NameInput";
+import DataAnalyzer from "@/components/DataAnalyzer";
+import ThemeToggle from "@/components/ThemeToggle";
+import ProgressUploadSimulator from "@/components/UploadProgessSim";
+import MockAIChatSolution from "@/components/MockAIChatSolution";
+import CustomDataAnalyzer from "@/components/CustomDataAnalyzer";
 
 const Index = () => {
   // 🧠 Component State - this is your component's memory!
@@ -50,25 +60,28 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="bg-card text-card-foreground border-border">
       {/* 🎨 Hero Section - The top part of your homepage */}
       <div className="container mx-auto px-4 py-8">
         <div className="text-center mb-12">
           {/* 🎯 Logo and Title */}
           <div className="flex items-center justify-center mb-6">
             <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-4 rounded-full">
-              <Database className="h-12 w-12 text-white" />
+              <Database className="bg-card text-card-foreground border-border" />
             </div>
           </div>
 
           {/* 📝 WEEK 1: Students customize this title with their name */}
           <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
-            Plug-N-Learn
+            "Tim's Data Hub"
           </h1>
           <p className="text-xl text-slate-600 mb-2">Data Insight Engine</p>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
             Upload your dataset and instantly discover insights, visualize
             trends, and explore your data with interactive charts and analytics.
+          </p>
+          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+            Built by Tim - Future Software Engineer
           </p>
           {/* 🆕 WEEK 3: Live Event Handling Demo (removed NameInput from homepage) */}
           {/* <div className="mt-8 mb-8 flex justify-center">
@@ -85,10 +98,13 @@ const Index = () => {
 
         {data.length === 0 ? (
           <>
+            <div className="absolute top-4 right-4">
+              <ThemeToggle />
+            </div>
             {/* 🎨 Features Grid - Shows what your app can do */}
             <div className="grid md:grid-cols-3 gap-6 mb-12">
               {/* 📤 Upload Feature Card */}
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/70 backdrop-blur-sm">
+              <Card className="bg-card text-card-foreground border-border">
                 <CardHeader className="text-center">
                   <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Upload className="h-8 w-8 text-blue-600" />
@@ -102,7 +118,7 @@ const Index = () => {
               </Card>
 
               {/* 📊 Charts Feature Card */}
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/70 backdrop-blur-sm">
+              <Card className="bg-card text-card-foreground border-border">
                 <CardHeader className="text-center">
                   <div className="bg-indigo-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <BarChart3 className="h-8 w-8 text-indigo-600" />
@@ -116,7 +132,7 @@ const Index = () => {
               </Card>
 
               {/* 🧠 Insights Feature Card */}
-              <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/70 backdrop-blur-sm">
+              <Card className="bg-card text-card-foreground border-border">
                 <CardHeader className="text-center">
                   <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="h-8 w-8 text-teal-600" />
@@ -128,10 +144,75 @@ const Index = () => {
                   </CardDescription>
                 </CardHeader>
               </Card>
+              {/* 🚀 Upload Progress Simulator Card */}
+
+              <Card className="bg-card text-card-foreground border-border">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Upload className="mr-3 h-6 w-6 text-purple-600" />
+                    Interactive Progress Demo
+                  </CardTitle>
+                  <CardDescription>
+                    Try our upload progress simulator built with React state!
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ProgressUploadSimulator />
+                </CardContent>
+              </Card>
+              <Card className="bg-card text-card-foreground border-border">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">
+                    Interactive Practice
+                  </CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <InteractivePractice />
+                </CardContent>
+              </Card>
+              <Card className="bg-card text-card-foreground border-border">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">Input Name</CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <NameInput />
+                </CardContent>
+              </Card>
+              <Card className="bg-card text-card-foreground border-border">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">Data Analyzer</CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <DataAnalyzer />
+                </CardContent>
+              </Card>
+              <Card className="bg-card text-card-foreground border-border">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">
+                    Custom Data Analyzer
+                  </CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <CustomDataAnalyzer />
+                </CardContent>
+              </Card>
+              <Card className="bg-card text-card-foreground border-border">
+                <CardHeader className="text-center">
+                  <CardTitle className="text-2xl">AI</CardTitle>
+                  <CardDescription></CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <MockAIChatSolution />
+                </CardContent>
+              </Card>
             </div>
 
             {/* 📤 Upload Section - Where users upload their data */}
-            <Card className="border-0 shadow-xl bg-white/80 backdrop-blur-sm max-w-2xl mx-auto">
+            <Card className="border-0 shadow-xl bg-card text-card-foreground border-border backdrop-blur-sm max-w-2xl mx-auto">
               <CardHeader className="text-center">
                 <CardTitle className="text-2xl">Get Started</CardTitle>
                 <CardDescription>
@@ -156,6 +237,9 @@ const Index = () => {
           </>
         )}
       </div>
+      <footer className="text-center py-6 text-sm text-slate-500">
+        &copy; {new Date().getFullYear()} Built by Tim
+      </footer>
     </div>
   );
 };

@@ -3,22 +3,27 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const DataAnalyzer = () => {
-  const [analysis, setAnalysis] = useState(null);
+  const [analysis, setAnalysis] = useState<any>(null);
+
   // Sample data to work with
   const sampleData = [23, 45, 67, 89, 34, 56, 78, 90, 12, 45, 67, 89];
-  const validNumber = sampleData.filter(
-    (item) => typeof item === "number" && !isNaN(item)
-  );
-  if (validNumber.length === 0) {
-    setAnalysis({ message: "No valid numeric data available for analysis." });
-  }
+
   const analyzeData = () => {
+    const validNumber = sampleData.filter(
+      (item) => typeof item === "number" && !isNaN(item)
+    );
+
+    if (validNumber.length === 0) {
+      setAnalysis({ message: "No valid numeric data available for analysis." });
+      return;
+    }
+
     // Calculate statistics
-    const sum = sampleData.reduce((total, num) => total + num, 0);
-    const average = sum / sampleData.length;
-    const maximum = Math.max(...sampleData);
-    const minimum = Math.min(...sampleData);
-    const count = sampleData.length;
+    const sum = validNumber.reduce((total, num) => total + num, 0);
+    const average = sum / validNumber.length;
+    const maximum = Math.max(...validNumber);
+    const minimum = Math.min(...validNumber);
+    const count = validNumber.length;
     const sorted = [...validNumber].sort((a, b) => a - b);
     const mid = Math.floor(sorted.length / 2);
     const median =
@@ -31,10 +36,15 @@ const DataAnalyzer = () => {
       average: average.toFixed(2),
       maximum,
       minimum,
-      count: validNumber.length,
+      count,
       median,
     });
   };
+
+  const resetAnalysis = () => {
+    setAnalysis(null);
+  };
+
   return (
     <Card>
       <CardHeader>
@@ -42,12 +52,16 @@ const DataAnalyzer = () => {
       </CardHeader>
       <CardContent>
         <p>Sample data: {sampleData.join(", ")}</p>
-        <Button className="mt-4" onClick={analyzeData}>
-          Analyze Data
-        </Button>
+
+        <div className="flex gap-2 mt-4">
+          <Button onClick={analyzeData}>Analyze Data</Button>
+          <Button variant="outline" onClick={resetAnalysis}>
+            Reset
+          </Button>
+        </div>
 
         {analysis && (
-          <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 rounded mt-4">
+          <div className="grid grid-cols-2 gap-4 p-4 bg-card rounded mt-4">
             {analysis.message ? (
               <p>{analysis.message}</p>
             ) : (

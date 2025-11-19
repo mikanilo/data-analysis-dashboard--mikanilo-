@@ -5,19 +5,63 @@
   text-align: center;
 }
 
+/* ----------------------------
+   LOGO (Light + Dark Mode)
+----------------------------- */
 .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
+.dark .logo:hover {
+  filter: drop-shadow(0 0 2em #9bb3ffcc); /* brighter for dark mode */
+}
+
+/* React logo hover */
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.dark .logo.react:hover {
+  filter: drop-shadow(0 0 2em #8ceaffcc);
+}
+
+/* ----------------------------
+   CARD
+----------------------------- */
+.card {
+  padding: 2em;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px #00000015;
+}
+
+.dark .card {
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px #00000066;
+  color: #e5e5e5;
+}
+
+/* ----------------------------
+   READ THE DOCS TEXT
+----------------------------- */
+.read-the-docs {
+  color: #888;
+}
+
+.dark .read-the-docs {
+  color: #aaa;
+}
+
+/* ----------------------------
+   LOGO SPIN ANIMATION
+----------------------------- */
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,12 +75,4 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

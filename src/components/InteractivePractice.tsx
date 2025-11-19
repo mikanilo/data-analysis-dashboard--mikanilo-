@@ -2,12 +2,12 @@ import { set } from "date-fns";
 import { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
-const COLORS = ["#f87171", "#60a5fa", "#34d399", "#fbbf24", "#a78bfa"];
+const COLORS = ["#f87171", "#60a5fa", "#34d399", "#fbbf24", "bg-card"];
 const InteractivePractice = () => {
   // Week 2 Review States
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
-  const [bgColor, setBgColor] = useState("white");
+  const [bgColor, setBgColor] = useState("bg-card");
   const [isVisible, setIsVisible] = useState(true);
 
   // Week 3 Prep States (Optional Challenge)
@@ -18,7 +18,7 @@ const InteractivePractice = () => {
   const resetAll = () => {
     setCount(0);
     setName("");
-    setBgColor("white");
+    setBgColor("bg-card");
     setIsVisible(true);
     setSavedName("");
     setShowSaveHint(false);
@@ -47,10 +47,7 @@ const InteractivePractice = () => {
   };
 
   return (
-    <div
-      className="p-6 bg-white rounded-lg shadow-md"
-      style={{ backgroundColor: bgColor }}
-    >
+    <div className={`p-6 rounded-lg shadow-md ${bgColor}`}>
       <h2 className="text-2xl font-bold mb-6">🎮 Interactive Practice</h2>
 
       {/* Week 2 Review Sections */}
@@ -92,11 +89,11 @@ const InteractivePractice = () => {
         </div>
 
         {/* Hover-Aware Color Picker */}
-        <div className="p-4 border rounded">
+        <div className="p-4 border rounded text-card-foreground border-border">
           <h3 className="font-semibold mb-2">Hover-Aware Color Picker</h3>
           <div className="flex gap-2">
             <button
-              onClick={() => setBgColor("lightblue")}
+              onClick={() => setBgColor("bg-blue-200")}
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
               className={`px-3 py-2 rounded transition-all duration-200 ${
@@ -106,19 +103,23 @@ const InteractivePractice = () => {
               Blue {isHovering && "✨"}
             </button>
             <button
-              onClick={() => setBgColor("lightgreen")}
+              onClick={() => setBgColor("bg-green-200")}
               className="px-3 py-2 bg-green-200 hover:bg-green-300 hover:scale-105 transition-all duration-200 rounded"
             >
               Green
             </button>
             <button
-              onClick={() => setBgColor("lightcoral")}
+              onClick={() => setBgColor("bg-red-200")}
               className="px-3 py-2 bg-red-200 hover:bg-red-300 hover:scale-105 transition-all duration-200 rounded"
             >
               Red
             </button>
             <button
-              onClick={() => setBgColor("white")}
+              onClick={() =>
+                setBgColor(
+                  "border-0 shadow-xl bg-card text-card-foreground border-border backdrop-blur-sm max-w-2xl mx-auto"
+                )
+              }
               className="px-3 py-2 bg-gray-200 hover:bg-gray-300 transition-all duration-200 rounded"
             >
               Default
