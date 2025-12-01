@@ -165,9 +165,7 @@ ${Object.entries(summary.columnTypes)
       {/* Enhanced Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900">
-            Data Analysis Dashboard
-          </h2>
+          <h2 className="text-3xl font-bold">Data Analysis Dashboard</h2>
           <div className="flex items-center gap-4 text-sm text-gray-600 mt-1">
             <span className="flex items-center gap-1">
               <FileText className="h-4 w-4" />
